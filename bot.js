@@ -207,25 +207,25 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.sendMessage('');
+    msg.channel.sendMessage('∾');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.sendMessage('†');
+    msg.channel.sendMessage('∾');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!link') {
-    msg.channel.sendMessage('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/bUju6xh`');
+    msg.channel.sendMessage('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!davet') {
-    msg.channel.sendMessage('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/bUju6xh`');
+    msg.channel.sendMessage('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
   }
 });
 
@@ -261,7 +261,7 @@ client.on("guildMemberAdd", member => {
     );
   
   logChannel.send(embed);
-}); // Developed by Amerikan
+}); //Cagin.
 
 // DM HOŞGELDİN
 
@@ -273,12 +273,8 @@ client.on(`guildMemberAdd`, async member => {
       `• Sunucumuza hoş geldin!`,
       `† Tagımızı Alarak Bize Destek Olabilirsin.`
     )
-    .setFooter(
-      `Developed by Amerikan`,
-      `https://cdn.discordapp.com/avatars/327162236051128323/a_d7f09fdad02b8aedf0f289be1841f440.gif?size=256&f=.gif?size=2048`
-    );
   member.send(e);
-});
+}); // Cagin.
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -293,7 +289,7 @@ client.on("message",message => {
     else {
       message.delete(6000) // milisaniyeye göre giriniz örneğin 6000 milisaniye 6 saniyedir!
     }
-})})
+})}) // Cagin.
 
 
 
@@ -329,7 +325,7 @@ client.on('message', async message => {
       db.delete(`afk_${message.author.id}`)
     }
   }
-});
+}); //Cagin.
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -339,4 +335,4 @@ client.on('message', async message => {
 
 client.on('ready', ()=>{
 client.channels.get('Girecek ses kanalı id').join()
-})
+}) //Cagin.
