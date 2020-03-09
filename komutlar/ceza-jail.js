@@ -46,4 +46,4 @@ exports.help = {
   name: 'jail',
   description: "Etiketlenen kişinin tüm rollerini alıp jail'e atar.",
   usage: '!jail @etiket sebep'
-} 
+} //Cagin.
