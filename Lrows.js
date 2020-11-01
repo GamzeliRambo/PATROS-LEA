@@ -253,16 +253,15 @@ client.on(`guildMemberAdd`, async member => {
 
 
 // BOT MESAJ SİLİCİ
-/*
 client.on("message",message => {
   if(!message.author.bot) return;
   db.fetch(`usohbet_${message.channel.id}`).then(usdurum => {
     if(!usdurum || usdurum === 'pasif') return;
     else {
-      message.delete(6000) // milisaniyeye göre giriniz örneğin 6000 milisaniye 6 saniyedir!
+      message.delete({timeout: 6000}) // milisaniyeye göre giriniz örneğin 6000 milisaniye 6 saniyedir!
     }
 })}) 
-*/
+
 
 
 
