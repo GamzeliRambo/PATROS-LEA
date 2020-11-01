@@ -27,11 +27,11 @@ exports.run = async (client, message, args) => {
       .send("Lütfen Bir Sebep Yazınız.")
       .then(m => m.delete(5000));
   message.react("emoji id");
-  message.guild.members.get(member.id).roles.forEach(r => {
-    message.guild.members.get(member.id).removeRole(r);
+  message.guild.members.cache.get(member.id).roles.cache.forEach(r => {
+    message.guild.members.cache.get(member.id).roles.remove(r);
   });
-  member.addRole("jail rol id");
-  const kanal = message.guild.channels.find(c => c.id == "log-kanal id");
+  member.roles.add("772059659904876604");
+  const kanal = message.guild.channels.find(c => c.id == "771743251950338091");
   const embed1 = new Discord.MessageEmbed()
     .setDescription(
       `${kullanıcı} adlı üye **${reason}** sebebi ile jaile atıldı!`
