@@ -5,15 +5,15 @@ const ayarlar = require("../ayarlar.json");
 module.exports.run = async (bot, message, args) => {
   if (
     message.author.id !== ayarlar.sahip &&
-    message.author.id !== "518794343256031234"
+    message.author.id !== "518794343256031234"//KENDI IDNIZI GIRIN 
   )
     return message.channel.send(
-      "🤪 `Geliştiricim değilsin`, yani bu kodu kullanamazsın!"
+      "Sadece Sahibim Bu Komuta Erişebilir."
     );
 
-  message.channel.send(` 😈 Başarılı! Bot yeniden başlatılıyor.`);
+  message.channel.send(`Botunuz yeniden başlatılıyor.`);
   message.delete({timeout: 60, reason: 'Yeniden Başladı'}).then(msg => {
-    console.log(`Bot yeniden başlatılıyor...`);
+    console.log(`Bot Yeniden Başlatılıyor Kısa Süre Sonra Aktif Olur...`);
 
     process.exit(0);
   });
@@ -27,6 +27,6 @@ module.exports.conf = {
 
 module.exports.help = {
   name: "reboot",
-  description: "orascoder",
+  description: "Botunuzu Yeniden Başlatmanızda İşe Yarayan Komudumuz //Lrows",
   usage: "reboot"
 };

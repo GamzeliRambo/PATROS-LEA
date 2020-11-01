@@ -11,9 +11,9 @@ exports.run = async (client, message, args) => {
     return message.channel.send("Kullanıcıyı etiketlemeyi unuttun kanka.");
   let rol = message.mentions.roles.first();
   let member = message.guild.member(kullanıcı);
-  member.addRole("verilecek rol id");
-  member.removeRole("cezalı rol id");
-  let embed = new Discord.RichEmbed()
+  member.roles.add("770996528729817138");
+  member.roles.remove("772059659904876604");
+  let embed = new Discord.MessageEmbed()
     .setColor("RED")
     .addField(`Sunucu adınız`, `${kullanıcı} **adlı üyenin cezası kalktı! **`)
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);

@@ -9,32 +9,32 @@ exports.run = async (client, message, args) => {
         .setDescription(
           "Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!"
         )
-        .setColor("Black")
+        .setColor("RED")
     );
   let kullanıcı = message.mentions.users.first();
   if (!kullanıcı)
     return message.channel.send(
       new Discord.MessageEmbed()
         .setDescription("Bir üye etiketlemen gerekiyor!")
-        .setColor("Black")
+        .setColor("RED")
     );
   let user = message.mentions.users.first();
   let rol = message.mentions.roles.first();
   let member = message.guild.member(kullanıcı);
-  let reason = args.slice(1).join(" ");
-  if (!reason)
+  let lrowsreason = args.slice(1).join(" ");
+  if (!lrowsreason)
     return message.channel
       .send("Lütfen Bir Sebep Yazınız.")
       .then(m => m.delete(5000));
-  message.react("emoji id");
+  message.react("emoji id");//emoji id girmeniz yeterli olacaktır
   message.guild.members.cache.get(member.id).roles.cache.forEach(r => {
     message.guild.members.cache.get(member.id).roles.remove(r);
   });
-  member.roles.add("772059659904876604");
-  const kanal = message.guild.channels.find(c => c.id == "771743251950338091");
+  member.roles.add("772059659904876604");//jail rol id
+  const kanal = message.guild.channels.cache.find(c => c.id == "771743251950338091");//JAIL-LOG KANAL ID
   const embed1 = new Discord.MessageEmbed()
     .setDescription(
-      `${kullanıcı} adlı üye **${reason}** sebebi ile jaile atıldı!`
+      `${kullanıcı} Adlı Üye **${lrowsreason}** Yüzünden Jaile Atıldı!`
     )
     .setColor("RED")
     .setFooter(message.author.tag, message.author.avatarURL)
@@ -43,9 +43,9 @@ exports.run = async (client, message, args) => {
   let embed = new Discord.MessageEmbed()
     .setDescription(`${kullanıcı} adlı üye sürgün edildi!`)
     .setImage(
-      "https://cdn.discordapp.com/attachments/673224895756238848/673450899531628544/adalaett.gif"
+      "https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2FPrison-Break.png?v=1604269626551"
     )
-    .setFooter(`Justice is the basis of property..`)
+    .setFooter(`Lrows Jail Sistemi`)
     .setTimestamp();
   return message.channel
     .send(embed)
