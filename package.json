@@ -15,7 +15,8 @@
     "express": "^4.17.1",
     "node-superfetch": "^0.1.10",
     "common-tags": "^1.8.0",
-    "snekfetch": "^4.0.4"
+    "snekfetch": "^4.0.4",
+    "parse-ms": "^2.1.0"
   },
   "engines": {
     "node": "12.x"

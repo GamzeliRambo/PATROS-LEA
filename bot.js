@@ -152,7 +152,7 @@ client.on('userUpdate', async (oldUser, newUser) => {
   let uye = sunucu.members.get(newUser.id)
   if (newUser.username.includes(tag3) && !oldUser.username.includes(tag3)) {
     uye.addRole('tag alınca verilecek rol id')
-    let amerikanembed = new Discord.RichEmbed()
+    let amerikanembed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
     .setDescription(` <@${newUser.id}> **adlı üye** "sunucu tagınız" **tagımızı aldığı için** <@&verilecek rol id> **rolü verildi!**`)
     client.channels.get(`log kanal id`).send (amerikanembed)
@@ -168,7 +168,7 @@ client.on('userUpdate', async (oldUser, newUser) => {
   let uye = sunucu.members.get(oldUser.id)
   if (oldUser.username.includes(tag3) && !newUser.username.includes(tag3)) {
     uye.removeRole('alınacak rol id')
-    let amerikan2embed = new Discord.RichEmbed()
+    let amerikan2embed = new Discord.MessageEmbed()
     .setColor(`RED`)
     .setDescription(` <@${oldUser.id}> **adlı üye** "ᖪ" **tagımızı çıkardığı için** <@&alınacak rol id> **rolü alındı!**`)
     client.channels.get(`log kanal id`).send (amerikan2embed)
@@ -183,7 +183,7 @@ client.on('userUpdate', async (oldUser, newUser) => {
     const logChannel = member.guild.channels.find(
       channel => channel.id === "log gönderilecek kanal id" 
     );
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
       .setColor("RED")
       .addField(`Sunucu adınız` , `• ${member} adlı üye sunucumuza katıldı, <@&verilecek rol id> rolünü verdim!\n • Sunucumuz artık \`${member.guild.memberCount}\` üyeye sahip.! `
       );
@@ -250,11 +250,11 @@ client.on("ready", () => {
 // KANALLI HOŞGELDİN
 
 client.on("guildMemberAdd", member => {
-  var tag = ""; // buraya sunucunuzun tagını girin
+  var tag = "OC"; // buraya sunucunuzun tagını girin
   const logChannel = member.guild.channels.find(
     channel => channel.id === "" // buraya mesaj atacak kanal id
   );
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
     .setColor("RED")
     .setDescription(
       `${tag} ${member} **Hoş Geldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**\n${tag} **Sunucumuzun** \`Kurallarına\` <#kuralların olduğu kanal id> **Odasından Bakabilirsin.**`
@@ -266,7 +266,7 @@ client.on("guildMemberAdd", member => {
 // DM HOŞGELDİN
 
 client.on(`guildMemberAdd`, async member => {
-  const e = new Discord.RichEmbed()
+  const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
     .setImage(`https://media.giphy.com/media/EX3WTn0d3EuA0/giphy.gif`)
     .addField(0
@@ -281,7 +281,7 @@ client.on(`guildMemberAdd`, async member => {
 // ----------------------------------------------------------------------------
 
 // BOT MESAJ SİLİCİ
-
+/*
 client.on("message",message => {
   if(!message.author.bot) return;
   db.fetch(`usohbet_${message.channel.id}`).then(usdurum => {
@@ -290,7 +290,7 @@ client.on("message",message => {
       message.delete(6000) // milisaniyeye göre giriniz örneğin 6000 milisaniye 6 saniyedir!
     }
 })}) // Cagin.
-
+*/
 
 
 // ----------------------------------------------------------------------------
@@ -299,33 +299,45 @@ client.on("message",message => {
 
 // AFK KOMUDU 
 
-client.on('message', async message => {
-  
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-  
-  let kullanıcı = message.mentions.users.first() || message.author
-  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
-  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
-  let sebep = afkkullanıcı
- 
+const ms = require("parse-ms");
+const { DiscordAPIError } = require("discord.js");
+
+client.on("message", async message => {
   if (message.author.bot) return;
-  if (message.content.includes(`${prefix}afk`)) return;
-  
-  if (message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`)
-      db.delete(`afk_${message.author.id}`)
-    }
-    if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``)
+  if (!message.guild) return;
+  if (message.content.includes(`afk`)) return;
+
+  if (await db.fetch(`afk_${message.author.id}`)) {
+    db.delete(`afk_${message.author.id}`);
+    db.delete(`afk_süre_${message.author.id}`);
+
+    const embed = new Discord.MessageEmbed()
+
+      .setColor("GREEN")
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(`Afk Modundan Başarıyla Çıkıldı.`);
+
+    message.channel.send(embed);
   }
 
-  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`)
-      db.delete(`afk_${message.author.id}`)
-    }
+  var USER = message.mentions.users.first();
+  if (!USER) return;
+  var REASON = await db.fetch(`afk_${USER.id}`);
+
+  if (REASON) {
+    let süre = await db.fetch(`afk_süre_${USER.id}`);
+    let timeObj = ms(Date.now() - süre);
+
+    const afk = new Discord.MessageEmbed()
+
+      .setColor("RED")//lrowsxrd
+      .setDescription(
+        `**BU KULLANICI AFK**\n\n**Afk Olan Kullanıcı :** \`${USER.tag}\`\n**Afk Süresi :** \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\`\n**Sebep :** \`${REASON}\``
+      );
+
+    message.channel.send(afk);
   }
-}); //Cagin.
+});
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------

@@ -1,26 +1,37 @@
-const Discord = require("discord.js");
 const db = require("quick.db");
-
-exports.run = async (client, message, args) => {
-  let user = message.author;
-  let sebep = args.join(" ");
-  let member = message.mentions.members.first();
-  let isim = args.slice(1).join(" ");
-  if (!sebep) return message.channel.send(`Bir sebep yazmalısın.`);
-
-  db.set(`afk_${user.id}`, sebep);
-  message.channel.send(`Şu anda \`${sebep}\` sebebiyle AFK'sın.`);
+const Discord = require("discord.js");
+const ayarlar = require('../ayarlar.json')
+let prefix = ayarlar.prefix
+ 
+exports.run = function(client, message, args) {
+ 
+  var USER = message.author;
+  var REASON = args.slice(0).join("  ");
+  const embed = new Discord.MessageEmbed()
+  .setColor('RED')
+  .setAuthor(message.author.username, message.author.avatarURL)
+  .setDescription(`Afk Olmak İçin Bir Sebep Belirtin.\n\n Örnek Kullanım : ${prefix}afk <sebep>`)
+  if(!REASON) return message.channel.send(embed)
+ //lrowsxrd
+  db.set(`afk_${USER.id}`, REASON);
+  db.set(`afk_süre_${USER.id}`, Date.now());
+  const afk = new Discord.MessageEmbed()
+  .setColor('GREEN')
+  .setAuthor(message.author.username, message.author.avatarURL)
+  .setDescription(`Afk Moduna Başarıyla Girildi. Afk Olma Sebebi : **${REASON}**`)
+  message.channel.send(afk)
+ 
 };
-
+ 
 exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
   permLevel: 0
 };
-
+ 
 exports.help = {
-  name: "afk",
-  description: "AFK olmanızı sağlar.",
-  usage: "afk <sebep>"
-}; ///Cagin.
+  name: 'afk',
+  description: 'afk komutu',
+  usage: 'afk'
+};

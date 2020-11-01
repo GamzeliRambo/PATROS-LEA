@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
   member.setVoiceChannel(voiceChannel);
   message.react("tepki id");
   const voiceChannel1 = message.member.voiceChannel.name;
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
     .setColor("#000000")
     .setDescription(
       message.author +
