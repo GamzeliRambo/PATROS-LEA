@@ -334,5 +334,5 @@ client.on('message', async message => {
 // BOTU ODAYA SOKAR.
 
 client.on('ready', ()=>{
-client.channels.get('Girecek ses kanalı id').join()
+client.channels.cache.get('772085519635054592').join()
 }) //Cagin.

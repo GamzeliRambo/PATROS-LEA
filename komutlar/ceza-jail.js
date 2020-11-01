@@ -2,11 +2,10 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 exports.run = async (client, message, args) => {
   if (
-    !message.member.roles.has("kullanacağı rol id") &&
     !message.member.hasPermission("ADMINISTRATOR")
   )
-    return message.channel.sendEmbed(
-      new Discord.RichEmbed()
+    return message.channel.send(
+      new Discord.MessageEmbed()
         .setDescription(
           "Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!"
         )
@@ -14,8 +13,8 @@ exports.run = async (client, message, args) => {
     );
   let kullanıcı = message.mentions.users.first();
   if (!kullanıcı)
-    return message.channel.sendEmbed(
-      new Discord.RichEmbed()
+    return message.channel.send(
+      new Discord.MessageEmbed()
         .setDescription("Bir üye etiketlemen gerekiyor!")
         .setColor("Black")
     );
@@ -33,7 +32,7 @@ exports.run = async (client, message, args) => {
   });
   member.addRole("jail rol id");
   const kanal = message.guild.channels.find(c => c.id == "log-kanal id");
-  const embed1 = new Discord.RichEmbed()
+  const embed1 = new Discord.MessageEmbed()
     .setDescription(
       `${kullanıcı} adlı üye **${reason}** sebebi ile jaile atıldı!`
     )
@@ -41,7 +40,7 @@ exports.run = async (client, message, args) => {
     .setFooter(message.author.tag, message.author.avatarURL)
     .setTimestamp();
 
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
     .setDescription(`${kullanıcı} adlı üye sürgün edildi!`)
     .setImage(
       "https://cdn.discordapp.com/attachments/673224895756238848/673450899531628544/adalaett.gif"

@@ -12,7 +12,10 @@
     "moment": "^2.29.1",
     "jimp": "^0.16.1",
     "quick.db": "^7.1.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-superfetch": "^0.1.10",
+    "common-tags": "^1.8.0",
+    "snekfetch": "^4.0.4"
   },
   "engines": {
     "node": "12.x"

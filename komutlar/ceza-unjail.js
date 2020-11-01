@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("kullanacağı rol id"))
+  if (!message.member.hasPermission("ADMINISTRATOR"))
     return message.channel.send(
       `Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!`
     );

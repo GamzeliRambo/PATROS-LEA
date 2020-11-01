@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   if (message.author.bot || message.channel.type === "dm") return;
 
-  if (!message.member.roles.has("Rolün Id ' si"))
+  if (!message.member.hasPermission("CHANGE_NICK"))
     return message.channel.send(
       `Bu komutu kullanabilmek için \`Rolün İsmi\` yetkisine sahip olmasınız.`
     );
