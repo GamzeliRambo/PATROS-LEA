@@ -155,7 +155,7 @@ client.on('userUpdate', async (oldUser, newUser) => {
     let amerikanembed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
     .setDescription(` <@${newUser.id}> **adlı üye** "sunucu tagınız" **tagımızı aldığı için** <@&verilecek rol id> **rolü verildi!**`)
-    client.channels.get(`log kanal id`).send (amerikanembed)
+    client.channels.cache.get(`log kanal id`).send (amerikanembed)
 
   }
 }
@@ -171,7 +171,7 @@ client.on('userUpdate', async (oldUser, newUser) => {
     let amerikan2embed = new Discord.MessageEmbed()
     .setColor(`RED`)
     .setDescription(` <@${oldUser.id}> **adlı üye** "ᖪ" **tagımızı çıkardığı için** <@&alınacak rol id> **rolü alındı!**`)
-    client.channels.get(`log kanal id`).send (amerikan2embed)
+    client.channels.cache.get(`log kanal id`).send (amerikan2embed)
 
   }
 }
@@ -207,32 +207,32 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.sendMessage('∾');
+    msg.channel.send('∾');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.sendMessage('∾');
+    msg.channel.send('∾');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!link') {
-    msg.channel.sendMessage('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
+    msg.channel.send('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!davet') {
-    msg.channel.sendMessage('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
+    msg.channel.send('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
   }
 });
 
 client.on("ready", () => {
   console.log(`Bot aktif!`);
   setInterval(function() {
-    let kanal = client.channels.get("mesajı atacak kanal id");
+    let kanal = client.channels.cache.get("mesajı atacak kanal id");
     if (kanal) {
       kanal.send(
         "Kanala atacak mesajınızı giriniz"
