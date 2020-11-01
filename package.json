@@ -10,7 +10,9 @@
     "discord.js": "^12.4.0",
     "chalk": "^4.1.0",
     "moment": "^2.29.1",
-    "jimp": "^0.16.1"
+    "jimp": "^0.16.1",
+    "quick.db": "^7.1.2",
+    "express": "^4.17.1"
   },
   "engines": {
     "node": "12.x"
