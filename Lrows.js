@@ -12,7 +12,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
     app.get("/", (request, response) => {
-    console.log(` az önce pinglenmedi. Sonra ponglanmadı... ya da başka bir şeyler olmadı.`);
+    console.log(`Botta Küçük Bir Problem Var Reboot Atabilirsiniz!`);
     response.sendStatus(200);
     });
     app.listen(process.env.PORT);
@@ -112,36 +112,20 @@ client.on('error', e => {
 
 client.login(ayarlar.token);
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-
 // OYNUYOR KISIMI
 
 client.on('ready', () => {
     client.user.setPresence({
         game: {
-            name: `Yağmur Damlalarını`,
+            name: `Lrowsxrd Public Register`,
             type: 'WATCHING',
-            // url: 'https://www.twitch.tv/amerikaniks'
-            // Değerler:
-            // PLAYING: Oynuyor
-            // WATCHING: İzliyor
-            // LISTENING: Dinliyor
-            // STREAMING : Yayında
+            // PLAYING:Oynuyor//WATCHING:İzliyor// LISTENING:Dinliyor//STREAMING:Yayında
         },
-              status: 'dnd'
-        // Değerler:
-        // online: Çevrimiçi
-        // dnd: Rahatsız Etmeyin
-        // idle: Boşta
+              status: 'dnd'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
     })
 })
 
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 // OTO TAG 
 
@@ -188,44 +172,38 @@ client.on('userUpdate', async (oldUser, newUser) => {
       .addField(`Sunucu adınız` , `• ${member} adlı üye sunucumuza katıldı, <@&verilecek rol id> rolünü verdim!\n • Sunucumuz artık \`${member.guild.memberCount}\` üyeye sahip.! `
       );
     logChannel.send(embed);
-  }); //Cagin.
+  }); //
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 ///Oto isim///
 client.on('guildMemberAdd', member => {
-  member.setNickname(`${member.user.username}`)//Sunucuya giren kişi ismini otomatik ayarlar.//member.setNickname değiştirebilirsiniz Örnek: member.setNickname('İsim | Yaş') bunu yapabilirsiniz.
- });//Cagin.
+  member.setNickname(`${member.user.username}`)//Sunucuya katıldığında nickname ayarlamaktadır.
+ });
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 // OTO MESAJ
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.send('∾');
+    msg.channel.send('');//tagınızı boşluğa yapıştırabilirsiniz.
   }
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'tag') {
-    msg.channel.send('∾');
+  if (msg.content.toLowerCase() === 'tag') {//tagınızı boşluğa yapıştırabilirsiniz.
+    msg.channel.send('');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!link') {
-    msg.channel.send('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
+    msg.channel.send('**İşte Sunucumuzun Davet Linki! :** `https://discord.gg/wenzy`');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!davet') {
-    msg.channel.send('**Hmm arkadaşlarını davet etmenin tam sırası! :** `https://discord.gg/qJ3MNRQ`');
+    msg.channel.send('**İşte Sunucumuzun Davet Linki! :** `https://discord.gg/wenzy`');
   }
 });
 
@@ -241,44 +219,38 @@ client.on("ready", () => {
   }, 7200000);
 });
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 // HOŞ GELDİN
 
 // KANALLI HOŞGELDİN
 
 client.on("guildMemberAdd", member => {
-  var tag = "OC"; // buraya sunucunuzun tagını girin
+  var tag = ""; // Sunucu Tagınızı Girin
   const logChannel = member.guild.channels.find(
-    channel => channel.id === "" // buraya mesaj atacak kanal id
+    channel => channel.id === "" //hoşgeldin kanal idsi
   );
   const embed = new Discord.MessageEmbed()
     .setColor("RED")
-    .setDescription(
+    .setDescription(                                                                                                                                //tam altına kurallar kanal idsi
       `${tag} ${member} **Hoş Geldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**\n${tag} **Sunucumuzun** \`Kurallarına\` <#kuralların olduğu kanal id> **Odasından Bakabilirsin.**`
     );
   
   logChannel.send(embed);
-}); //Cagin.
+}); 
 
 // DM HOŞGELDİN
 
 client.on(`guildMemberAdd`, async member => {
   const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
-    .setImage(`https://media.giphy.com/media/EX3WTn0d3EuA0/giphy.gif`)
+    .setImage(`https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Findir.gif?v=1604270383088`)
     .addField(0
       `• Sunucumuza hoş geldin!`,
-      `† Tagımızı Alarak Bize Destek Olabilirsin.`
+      `Tagımızı Alarak Bize Destek Olabilirsin.`
     )
   member.send(e);
-}); // Cagin.
+}); 
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 // BOT MESAJ SİLİCİ
 /*
@@ -289,13 +261,10 @@ client.on("message",message => {
     else {
       message.delete(6000) // milisaniyeye göre giriniz örneğin 6000 milisaniye 6 saniyedir!
     }
-})}) // Cagin.
+})}) 
 */
 
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 // AFK KOMUDU 
 
@@ -339,12 +308,9 @@ client.on("message", async message => {
   }
 });
 
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
 
 // BOTU ODAYA SOKAR.
 
 client.on('ready', ()=>{
-client.channels.cache.get('772085519635054592').join()
-}) //Cagin.
+client.channels.cache.get('772085519635054592').join()//SESLI KANAL IDSINI GIRIN
+})

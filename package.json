@@ -1,10 +1,10 @@
 {
   "name": "ayn",
   "version": "0.0.1",
-  "description": "by efe.",
-  "main": "bot.js",
+  "description": "Lrows Public Register Bot V12 ",
+  "main": "Lrows.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node Lrows.js"
   },
   "dependencies": {
     "discord.js": "^12.4.0",

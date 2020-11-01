@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let tag = "OC"; // tagınız
+  let tag = ""; // tagınız
   const voiceChannels = message.guild.channels.cache.filter(c => c.type === "voice");
   let count = 0;
   for (const [id, voiceChannel] of voiceChannels)
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
     .addField(
       "Tagdaki üye sayısı",
       message.guild.members.cache.filter(m => m.user.username.includes(tag)).size
-    ) // tagınız yoksa bu satrı silin
+    ) // TAG KULLANMIYORSANIZ BU SATIRI SİLEBİLİRSİNİZ
     .setFooter(
       `${message.author.tag} tarafından istendi`,
       message.author.avatarURL()
