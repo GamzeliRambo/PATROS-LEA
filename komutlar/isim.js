@@ -3,9 +3,9 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
   if (message.author.bot || message.channel.type === "dm") return;
 
-  if (!message.member.hasPermission("CHANGE_NICK"))
+  if (!message.member.roles.has("kullanacağı rol id"))
     return message.channel.send(
-      `Bu komutu kullanabilmek için \`Rolün İsmi\` yetkisine sahip olmasınız.`
+      `Bu komutu kullanabilmek için \`MANAGE_NICKNAMES\` yetkisine sahip olmasınız.`
     );
   let member = message.mentions.members.first();
   let isim = args.slice(1).join(" ");

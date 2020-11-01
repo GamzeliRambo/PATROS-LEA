@@ -11,9 +11,9 @@ exports.run = async (client, message, args) => {
     return message.channel.send("Kullanıcıyı etiketlemeyi unuttun kanka.");
   let rol = message.mentions.roles.first();
   let member = message.guild.member(kullanıcı);
-  member.addRole("erkek rol id"); //verilecek rol
-  member.removeRole("kadın rol id"); //alınacak rol
-  member.removeRole("kayıtsız rol id"); //alınacak rol
+  member.roles.add("erkek rol id"); //verilecek rol
+  member.roles.remove("kadın rol id"); //alınacak rol
+  member.roles.remove("kayıtsız rol id"); //alınacak rol
   let embed = new Discord.RichEmbed()
     .setColor("BLACK")
     .setDescription(

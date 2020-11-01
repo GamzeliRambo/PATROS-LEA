@@ -5,14 +5,14 @@ const ayarlar = require("../ayarlar.json");
 module.exports.run = async (bot, message, args) => {
   if (
     message.author.id !== ayarlar.sahip &&
-    message.author.id !== "668605277817274368"
+    message.author.id !== "518794343256031234"
   )
     return message.channel.send(
       "🤪 `Geliştiricim değilsin`, yani bu kodu kullanamazsın!"
     );
 
-  message.channel.sendMessage(` 😈 Başarılı! Bot yeniden başlatılıyor.`);
-  message.delete(60).then(msg => {
+  message.channel.send(` 😈 Başarılı! Bot yeniden başlatılıyor.`);
+  message.delete({timeout: 60, reason: 'Yeniden Başladı'}).then(msg => {
     console.log(`Bot yeniden başlatılıyor...`);
 
     process.exit(0);
