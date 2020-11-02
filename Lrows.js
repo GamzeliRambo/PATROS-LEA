@@ -128,10 +128,10 @@ client.on('ready', () => {
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "ω"
   let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
-  let rol = lrowssunucu.roles.find(a => a.id === `772814848521666570`)
-  let lrowsuye = lrowssunucu.members.get(lrowsnewUser.id)
+  let rol = lrowssunucu.roles.cache.find(a => a.id === `772814848521666570`)
+  let lrowsuye = lrowssunucu.members.cache.get(lrowsnewUser.id)
   if (lrowsnewUser.username.includes(lrowstag) && !lrowsoldUser.username.includes(lrowstag)) {
-    lrowsuye.addRole('772814848521666570')
+    lrowsuye.roles.add('772814848521666570')
     let lrowsembed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
     .setDescription(` <@${lrowsnewUser.id}> **adlı üye** "ω" **tagımızı aldığı için** <@&772814848521666570> **rolü verildi!**`)
@@ -143,10 +143,10 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "ω"
   let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
-  let lrowsrol = lrowssunucu.roles.find(a => a.id === `772814848521666570`)
-  let lrowsuye = lrowssunucu.members.get(lrowsoldUser.id)
+  let lrowsrol = lrowssunucu.roles.cache.find(a => a.id === `772814848521666570`)
+  let lrowsuye = lrowssunucu.members.cache.get(lrowsoldUser.id)
   if (lrowsoldUser.username.includes(lrowstag) && !lrowsnewUser.username.includes(lrowstag)) {
-    lrowsuye.removeRole('772814848521666570')
+    lrowsuye.roles.remove('772814848521666570')
     let lrowsembedd = new Discord.MessageEmbed()
     .setColor(`RED`)
     .setDescription(` <@${lrowsoldUser.id}> **adlı üye** "ω" **tagımızı çıkardığı için** <@&772814848521666570> **rolü alındı!**`)
@@ -156,7 +156,7 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 }
           ); //OTO ROL
   client.on("guildMemberAdd", async (lrowsmember) => {
-    lrowsmember.addRole("770996315676737537")
+    lrowsmember.roles.add("770996315676737537")
     const lrowslogChannel = lrowsmember.guild.channels.find(
       lrowschannel => lrowschannel.id === "772814727390429214" //otorol log kanal id
     );
