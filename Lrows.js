@@ -227,7 +227,7 @@ client.on("guildMemberAdd", lrowsmember => {
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
-      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#772813754819411969> **Odasından Bakabilirsin.**Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
+      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#772813754819411969> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
     );
   
   lrowslogChannel.send(lrowsembed);
@@ -244,7 +244,7 @@ let lrowstag = 'ω';
       `Sunucumuza hoş geldin!`,
       `Tagımızı Alarak Bize Destek Olabilirsin.`
     )
-.add
+.addField("İşte tagımız:", lrowstag)
   lrowsmember.send(e);
 }); 
 
