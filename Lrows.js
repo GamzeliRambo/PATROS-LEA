@@ -256,7 +256,7 @@ let lrowstag = 'ω';
 // BOT MESAJ SİLİCİ
 client.on("message",message => {
   if(!message.author.bot) return;
-  db.fetch(`lrowssohbet_${message.channel.id}`).then(lrowsdurum => {
+  db.get(`lrowssohbet_${message.channel.id}`).then(lrowsdurum => {
     if(!lrowsdurum || lrowsdurum === 'pasif') return;
     else {
       message.delete({timeout: 6000}) // 6000 = 6 Saniye Eder Buna Göre Editleyebilirsiniz.

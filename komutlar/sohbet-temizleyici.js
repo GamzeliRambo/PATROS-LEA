@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     return message.channel.send(
       `Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`
     );
-  db.fetch(`usohbet_${message.channel.id}`).then(usdurum => {
+  db.fetch(`usohbet_${message.channel.id}`).cache.get(usdurum => {
     if (!usdurum || usdurum === "pasif") usdurum = "Pasif";
     if (!args[0])
       return message.channel.send(
