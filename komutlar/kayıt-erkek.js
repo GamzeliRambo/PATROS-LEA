@@ -2,22 +2,22 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("kullanacağı rol id"))// rol id buraya girmeniz gerekli 
+  if (!message.member.roles.cache.has("772059661690994719"))// rol id buraya girmeniz gerekli 
     return message.channel.send(      //rol ismini aşağıya girin
-      `Bu komutu kullanabilmek için \`kullanacağı rol isimi\` yetkisine sahip olmasınız.`
+      `Bu komutu kullanabilmek için \`Owner\` yetkisine sahip olmasınız.`
     );
   let lrowskullanıcı = message.mentions.users.first();
   if (!lrowskullanıcı)
     return message.channel.send("Kullanıcıyı etiketlemeyi unuttun kanka.");
   let lrowsrol = message.mentions.roles.first();
   let lrowsmember = message.guild.member(lrowskullanıcı);
-  lrowsmember.roles.add("erkek rol id"); //verilecek rol
-  lrowsmember.roles.remove("kadın rol id"); //alınacak rol
-  lrowsmember.roles.remove("kayıtsız rol id"); //alınacak rol
-  let embed = new Discord.RichEmbed()
+  lrowsmember.roles.add("770996528729817138"); //verilecek rol
+  lrowsmember.roles.remove("770996442818674715"); //alınacak rol
+  lrowsmember.roles.remove("770996315676737537"); //alınacak rol
+  let embed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setDescription(
-      `${lrowskullanıcı} **üyesine** <@&erkek rol id> **rolü verildi!**`
+      `${lrowskullanıcı} **üyesine** <@770996528729817138> **rolü verildi!**`
     )
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);
   message.react("emoji id"); //emoji id
@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ["e"],
   kategori: "KULLANICI KOMUTLARI",
   permLevel: 0
 };
