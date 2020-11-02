@@ -228,9 +228,11 @@ client.on("guildMemberAdd", lrowsmember => {
   );
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
+    .setImage("https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Fwenzy.png?v=1604341793534")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
       `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#772813754819411969> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
     );
+   
   
   lrowslogChannel.send(lrowsembed);
 }); 
