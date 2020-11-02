@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
   let lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setDescription(                  //rol id buraya girin
-      `${lrowskullanıcı} **üyesine** <@770996442818674715> **rolü verildi!**`
+      `${lrowskullanıcı} **üyesine** <@&770996442818674715> **rolü verildi!**`
     )
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);
   message.react("emoji id");//emoji id
@@ -27,13 +27,13 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ["k"],
   kategori: "KULLANICI KOMUTLARI",
   permLevel: 0
 };
 
 exports.help = {
   name: "kadın",
-  description: "Hadi kadın olalımm",
+  description: "Kadın Üye Rolü Verir",
   usage: "kadın"
 };

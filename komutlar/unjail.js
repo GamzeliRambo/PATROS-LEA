@@ -11,8 +11,8 @@ exports.run = async (client, message, args) => {
     return message.channel.send("Etiketlemen Gerekli!");
   let lrowsrol = message.mentions.roles.first();
   let lrowsmember = message.guild.member(lrowskullanıcı);
-  lrowsmember.roles.add("770996528729817138");
-  lrowsmember.roles.remove("772059659904876604");
+  lrowsmember.roles.add("770996528729817138");//üye rolü
+  lrowsmember.roles.remove("772059659904876604");//jailli rolü
   let lrowsembed = new Discord.MessageEmbed()
     .setColor("RED")
     .addField(`Sunucu adınız`, `${lrowskullanıcı} **adlı üyenin cezası kalktı! **`)

@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     );
   let lrowskullanıcı = message.mentions.users.first();
   if (!lrowskullanıcı)
-    return message.channel.send("Kullanıcıyı etiketlemeyi unuttun kanka.");
+    return message.channel.send("Kullanıcıyı etiketlemen gerekli");
   let lrowsrol = message.mentions.roles.first();
   let lrowsmember = message.guild.member(lrowskullanıcı);
   lrowsmember.roles.add("770996528729817138"); //verilecek rol
@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
   let embed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setDescription(
-      `${lrowskullanıcı} **üyesine** <@770996528729817138> **rolü verildi!**`
+      `${lrowskullanıcı} **üyesine** <@&770996528729817138> **rolü verildi!**`
     )
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);
   message.react("emoji id"); //emoji id

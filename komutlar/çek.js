@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("Kullanacağı rol id"))
+  if (!message.member.roles.cache.has("772059661690994719"))
     return message.channel.send(
-      `Bu komutu kullanabilmek için \`kullanacağı rol adı\` yetkisine sahip olmasınız.`
+      `Bu komutu kullanabilmek için \`Owner\` yetkisine sahip olmasınız.`
     );
   if (!message.member.voiceChannel) {
     return message.channel.send("Ses kanalında olman lazım!");

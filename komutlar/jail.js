@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
   message.guild.members.cache.get(lrowsmember.id).roles.cache.forEach(r => {
     message.guild.members.cache.get(lrowsmember.id).roles.remove(r);
   });
-  lrowsmember.roles.add("772059661690994719");//jail rol id
+  lrowsmember.roles.add("772059659904876604");//jail rol id
   const lrowskanal = message.guild.channels.cache.find(c => c.id == "772886096668524574");//JAIL-LOG KANAL ID
   const lrowsembed1 = new Discord.MessageEmbed()
     .setDescription(
@@ -43,8 +43,8 @@ exports.run = async (client, message, args) => {
   let lrowsembed = new Discord.MessageEmbed()
     .setDescription(`${lrowskullanıcı} Adlı Üye Jaile Atıldı!`)
     .setImage(
-      "https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2FPrison-Break.png?v=1604269626551"
-    )
+      "https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2FPrison-Break.png?v=1604269626551")
+    .setColor("BLACK")
     .setFooter(`Lrows Jail Sistemi`)
     .setTimestamp();
   return message.channel
