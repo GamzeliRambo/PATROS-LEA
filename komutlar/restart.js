@@ -5,7 +5,7 @@ const ayarlar = require("../ayarlar.json");
 module.exports.run = async (bot, message, args) => {
   if (
     message.author.id !== ayarlar.sahip &&
-    message.author.id !== "518794343256031234"//KENDI IDNIZI GIRIN 
+    message.author.id !== "518794343256031234"//SAHIP ID GIRINIZ
   )
     return message.channel.send(
       "Sadece Sahibim Bu Komuta Erişebilir."

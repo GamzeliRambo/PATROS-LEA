@@ -5,9 +5,9 @@ exports.run = (client, message, args) => {
 
   guild
     .fetchBans()
-    .then(bans =>
+    .then(lrowsbans =>
       message.channel.send(
-        `Sunucunuzda **${bans.size}** Banlanmış Üye Bulunmaktadır.`
+        `Sunucunuzda **${lrowsbans.size}** Banlanmış Üye Bulunmaktadır.`
       )
     )
     .catch(console.error);
@@ -24,4 +24,4 @@ exports.help = {
   name: "bansay",
   description: "Sunucudan banlanan kişilerin sayısını gösterir",
   usage: "bansay"
-}; //Cagin.
+}; 

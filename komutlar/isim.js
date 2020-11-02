@@ -7,15 +7,15 @@ exports.run = async (client, message, args) => {
     return message.channel.send(
       `Bu komutu kullanabilmek için \`MANAGE_NICKNAMES\` yetkisine sahip olmasınız.`
     );
-  let member = message.mentions.members.first();
-  let isim = args.slice(1).join(" ");
-  if (!member) return message.channel.send("Bir üye etiketlemelisin kanka");
-  if (!isim) return message.channel.send("Bir isim yazmalısın kanka");
-  member.setNickname(`• ${isim}`);
+  let lrowsmember = message.mentions.members.first();
+  let lrowsisim = args.slice(1).join(" ");
+  if (!lrowsmember) return message.channel.send("Bir üye etiketlemelisin kanka");
+  if (!lrowsisim) return message.channel.send("Bir isim yazmalısın kanka");
+  lrowsmember.setNickname(`• ${lrowsisim}`);
   const embed = new Discord.RichEmbed()
     .addField(
       `• Kullanıcının takma adı değiştirildi.`,
-      `Kullanıcı adını başarıyla \`• ${isim}\` olarak ayarladım!`
+      `Kullanıcı adını başarıyla \`• ${lrowsisim}\` olarak ayarladım!`
     )
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`)
     .setThumbnail(client.user.avatarURL);

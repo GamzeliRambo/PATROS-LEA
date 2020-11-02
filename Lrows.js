@@ -136,68 +136,64 @@ client.on('userUpdate', async (oldUser, newUser) => {
   let uye = sunucu.members.get(newUser.id)
   if (newUser.username.includes(tag3) && !oldUser.username.includes(tag3)) {
     uye.addRole('tag alınca verilecek rol id')
-    let amerikanembed = new Discord.MessageEmbed()
+    let lrowsembed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
     .setDescription(` <@${newUser.id}> **adlı üye** "sunucu tagınız" **tagımızı aldığı için** <@&verilecek rol id> **rolü verildi!**`)
-    client.channels.cache.get(`log kanal id`).send (amerikanembed)
+    client.channels.cache.get(`log kanal id`).send (lrowsembed)
 
   }
 }
           );
 
-client.on('userUpdate', async (oldUser, newUser) => {
+client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var tag3 = "sunucu tagınız"
   let sunucu = client.guilds.find(e => e.id === `sunucu id`)
   let rol = sunucu.roles.find(a => a.id === `tag ro lid`)
   let uye = sunucu.members.get(oldUser.id)
   if (oldUser.username.includes(tag3) && !newUser.username.includes(tag3)) {
     uye.removeRole('alınacak rol id')
-    let amerikan2embed = new Discord.MessageEmbed()
+    let lrowsembedd = new Discord.MessageEmbed()
     .setColor(`RED`)
     .setDescription(` <@${oldUser.id}> **adlı üye** "ᖪ" **tagımızı çıkardığı için** <@&alınacak rol id> **rolü alındı!**`)
-    client.channels.cache.get(`log kanal id`).send (amerikan2embed)
+    client.channels.cache.get(`log kanal id`).send (lrowsembedd)
 
   }
 }
-          ); 
-
-  // OTO ROL
+          ); //OTO ROL
   client.on("guildMemberAdd", async (member) => {
     member.addRole("verilecek rol id")
     const logChannel = member.guild.channels.find(
-      channel => channel.id === "log gönderilecek kanal id" 
+      channel => channel.id === "log gönderilecek kanal id" //otorol log kanal id
     );
     const embed = new Discord.MessageEmbed()
-      .setColor("RED")
+      .setColor("RED")                                                     //verilecek rol id girin
       .addField(`Sunucu adınız` , `• ${member} adlı üye sunucumuza katıldı, <@&verilecek rol id> rolünü verdim!\n • Sunucumuz artık \`${member.guild.memberCount}\` üyeye sahip.! `
       );
     logChannel.send(embed);
-  }); //
+  }); 
 
 
-///Oto isim///
-client.on('guildMemberAdd', member => {
-  member.setNickname(`${member.user.username}`)//Sunucuya katıldığında nickname ayarlamaktadır.
+//İSİM AYARLAMA
+client.on('guildMemberAdd', lrowsmember => {
+  lrowsmember.setNickname(`${lrowsmember.user.username}`)//Sunucuya Katılanın İsmini Değiştirir
  });
 
-
 // OTO MESAJ
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === '!tag') {
-    msg.channel.send('');//tagınızı boşluğa yapıştırabilirsiniz.
+client.on('message', lrowstagmesaj => {
+  if (lrowstagmesaj.content.toLowerCase() === '!tag') {
+    lrowstagmesaj.channel.send('ω');//TAG
   }
 });
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'tag') {//tagınızı boşluğa yapıştırabilirsiniz.
-    msg.channel.send('');
+client.on('message', lrowstagmesaj => {
+  if (lrowstagmesaj.content.toLowerCase() === 'tag') {//TAG
+    lrowstagmesaj.channel.send('ω');
   }
 });
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === '!link') {
-    msg.channel.send('**İşte Sunucumuzun Davet Linki! :** `https://discord.gg/wenzy`');
+client.on('message', lrowsserverlinkmesaj => {
+  if (lrowsserverlinkmesaj.content.toLowerCase() === '!link') {
+    lrowsserverlinkmesaj.channel.send('**İşte Sunucumuzun Davet Linki! :** `https://discord.gg/wenzy`');
   }
 });
 
@@ -210,9 +206,9 @@ client.on('message', msg => {
 client.on("ready", () => {
   console.log(`Bot aktif!`);
   setInterval(function() {
-    let kanal = client.channels.cache.get("mesajı atacak kanal id");
-    if (kanal) {
-      kanal.send(
+    let lrowskanal = client.channels.cache.get("mesajı atacak kanal id");//kanal id girmeniz yeterli olacaktır
+    if (lrowskanal) {
+      lrowskanal.send(
         "Kanala atacak mesajınızı giriniz"
       );
     }
@@ -221,18 +217,17 @@ client.on("ready", () => {
 
 
 // HOŞ GELDİN
-
 // KANALLI HOŞGELDİN
 
-client.on("guildMemberAdd", member => {
-  var tag = ""; // Sunucu Tagınızı Girin
-  const logChannel = member.guild.channels.find(
+client.on("guildMemberAdd", lrowsmember => {
+  var lrowstag = ""; // Sunucu Tagınızı Girin
+  const logChannel = lrowsmember.guild.channels.find(
     channel => channel.id === "" //hoşgeldin kanal idsi
   );
   const embed = new Discord.MessageEmbed()
     .setColor("RED")
-    .setDescription(                                                                                                                                //tam altına kurallar kanal idsi
-      `${tag} ${member} **Hoş Geldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**\n${tag} **Sunucumuzun** \`Kurallarına\` <#kuralların olduğu kanal id> **Odasından Bakabilirsin.**`
+    .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
+      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#kuralların olduğu kanal id> **Odasından Bakabilirsin.**`
     );
   
   logChannel.send(embed);
@@ -255,17 +250,17 @@ client.on(`guildMemberAdd`, async member => {
 // BOT MESAJ SİLİCİ
 client.on("message",message => {
   if(!message.author.bot) return;
-  db.fetch(`usohbet_${message.channel.id}`).then(usdurum => {
-    if(!usdurum || usdurum === 'pasif') return;
+  db.fetch(`lrowssohbet_${message.channel.id}`).then(lrowsdurum => {
+    if(!lrowsdurum || lrowsdurum === 'pasif') return;
     else {
-      message.delete({timeout: 6000}) // milisaniyeye göre giriniz örneğin 6000 milisaniye 6 saniyedir!
+      message.delete({timeout: 6000}) // 6000 = 6 Saniye Eder Buna Göre Editleyebilirsiniz.
     }
 })}) 
 
 
 
 
-// AFK KOMUDU 
+//AFK KOMUT
 
 const ms = require("parse-ms");
 const { DiscordAPIError } = require("discord.js");
@@ -276,39 +271,39 @@ client.on("message", async message => {
   if (message.content.includes(`afk`)) return;
 
   if (await db.fetch(`afk_${message.author.id}`)) {
-    db.delete(`afk_${message.author.id}`);
-    db.delete(`afk_süre_${message.author.id}`);
+    db.delete(`lrowsafk_${message.author.id}`);
+    db.delete(`lrowsafk_süre_${message.author.id}`);
 
-    const embed = new Discord.MessageEmbed()
+    const lrowsembed = new Discord.MessageEmbed()
 
       .setColor("GREEN")
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setDescription(`Afk Modundan Başarıyla Çıkıldı.`);
+      .setDescription(`Afk Modundan Çıkış Yaptın`);
 
-    message.channel.send(embed);
+    message.channel.send(lrowsembed);
   }
 
-  var USER = message.mentions.users.first();
-  if (!USER) return;
-  var REASON = await db.fetch(`afk_${USER.id}`);
+  var lrowskullanıcı = message.mentions.users.first();
+  if (!lrowskullanıcı) return;
+  var lrowssebep = await db.fetch(`afk_${lrowskullanıcı.id}`);
 
-  if (REASON) {
-    let süre = await db.fetch(`afk_süre_${USER.id}`);
-    let timeObj = ms(Date.now() - süre);
+  if (lrowssebep) {
+    let lrowssüre = await db.fetch(`lrowsafk_süre_${lrowskullanıcı.id}`);
+    let timeObj = ms(Date.now() - lrowssüre);
 
-    const afk = new Discord.MessageEmbed()
+    const lrowsafk = new Discord.MessageEmbed()
 
       .setColor("RED")//lrowsxrd
       .setDescription(
-        `**BU KULLANICI AFK**\n\n**Afk Olan Kullanıcı :** \`${USER.tag}\`\n**Afk Süresi :** \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\`\n**Sebep :** \`${REASON}\``
+        `**BU KULLANICI AFK**\n\n**Afk Olan Kullanıcı :** \`${lrowskullanıcı.tag}\`\n**Afk Süresi :** \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\`\n**Sebep :** \`${lrowssebep}\``
       );
 
-    message.channel.send(afk);
+    message.channel.send(lrowsafk);
   }
 });
 
 
-// BOTU ODAYA SOKAR.
+// Botu Sesliye Sokma Komutudur.
 
 client.on('ready', ()=>{
 client.channels.cache.get('772085519635054592').join()//SESLI KANAL IDSINI GIRIN

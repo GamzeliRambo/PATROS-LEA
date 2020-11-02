@@ -7,33 +7,33 @@ exports.run = async (client, message, args) => {
   if (!message.member.voiceChannel) {
     return message.channel.send("Ses kanalında olman lazım!");
   }
-  let kullanıcı = message.mentions.users.first();
-  if (!kullanıcı)
+  let lrowskullanıcı = message.mentions.users.first();
+  if (!lrowskullanıcı)
     return message.channel.send("**Kullanıcıyı etiketlemelisin.**");
-  let rol = message.mentions.roles.first();
-  let member = message.guild.member(kullanıcı);
-  if (!member.voiceChannel)
+  let lrowsrol = message.mentions.roles.first();
+  let lrowsmember = message.guild.member(lrowskullanıcı);
+  if (!lrowsmember.voiceChannel)
     return message.channel
       .send("Etiketlenen kullanıcı bir ses kanalında değil")
       .then(m => m.delete(5000));
   const voiceChannel = message.member.voiceChannel.id;
   if (!voiceChannel) return;
-  member.setVoiceChannel(voiceChannel);
-  message.react("tepki id");
+  lrowsmember.setVoiceChannel(voiceChannel);
+  message.react("tepki id");//emoji id buraya girmeniz gereklidir.
   const voiceChannel1 = message.member.voiceChannel.name;
-  let embed = new Discord.MessageEmbed()
-    .setColor("#000000")
+  let lrowsembed = new Discord.MessageEmbed()
+    .setColor("BLACK")
     .setDescription(
       message.author +
         " **Tarafından** " +
-        kullanıcı +
+        lrowskullanıcı +
         " **Kullanıcısı** `" +
         voiceChannel1 +
         "`** Sesli Kanalına Çekildi.**"
     )
     .setFooter(`${message.author.tag}`, `${message.author.displayAvatarURL}`)
     .setTimestamp();
-  message.channel.send(embed).then(m => m.delete(10000));
+  message.channel.send(lrowsembed).then(m => m.delete(10000));
 };
 exports.conf = {
   enabled: true,

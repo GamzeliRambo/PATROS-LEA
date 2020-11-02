@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let tag = ""; // tagınız
+  let tag = ""; // TAGINIZI BURAYA GİRİN
   const voiceChannels = message.guild.channels.cache.filter(c => c.type === "voice");
   let count = 0;
   for (const [id, voiceChannel] of voiceChannels)
     count += voiceChannel.members.size;
 
-  const embed = new Discord.MessageEmbed()
+  const lrowsembed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .addField("Sunucudaki üye sayısı", message.guild.memberCount)
     .addField(
@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
       `${message.author.tag} tarafından istendi`,
       message.author.avatarURL()
     );
-  message.channel.send(embed);
+  message.channel.send(lrowsembed);
 };
 
 exports.conf = {

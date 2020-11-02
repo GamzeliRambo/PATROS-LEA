@@ -6,22 +6,22 @@ exports.run = async (client, message, args) => {
     return message.channel.send(
       `Bu komutu kullanabilmek için \`kullanacağı rol isimi\` yetkisine sahip olmasınız.`
     );
-  let kullanıcı = message.mentions.users.first();
-  if (!kullanıcı)
+  let lrowskullanıcı = message.mentions.users.first();
+  if (!lrowskullanıcı)
     return message.channel.send("Kullanıcıyı etiketlemeyi unuttun kanka.");
-  let rol = message.mentions.roles.first();
-  let member = message.guild.member(kullanıcı);
-  member.addRole("kadın rol id"); //verilecek rol
-  member.removeRole("erkek rol id"); //alınacak rol
-  member.removeRole("kayıtsız rol id"); //alınacak rol
-  let embed = new Discord.RichEmbed()
+  let lrowsrol = message.mentions.roles.first();
+  let lrowsmember = message.guild.member(lrowskullanıcı);
+  lrowsmember.addRole("kadın rol id"); //verilecek rol
+  lrowsmember.removeRole("erkek rol id"); //alınacak rol
+  lrowsmember.removeRole("kayıtsız rol id"); //alınacak rol
+  let lrowsembed = new Discord.RichEmbed()
     .setColor("BLACK")
-    .setDescription(
-      `${kullanıcı} **üyesine** <@&kadın rol id> **rolü verildi!**`
+    .setDescription(                  //rol id buraya girin
+      `${lrowskullanıcı} **üyesine** <@&kadın rol id> **rolü verildi!**`
     )
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);
-  message.react("emoji id");
-  return message.channel.send(embed);
+  message.react("emoji id");//emoji id
+  return message.channel.send(lrowsembed);
 };
 
 exports.conf = {
