@@ -127,7 +127,7 @@ client.on('ready', () => {
 //OTOTAG 
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "ω"
-  let lrowssunucu = client.guilds.find(e => e.id === `752170350472724580`)
+  let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
   let rol = lrowssunucu.roles.find(a => a.id === `772814848521666570`)
   let lrowsuye = lrowssunucu.members.get(lrowsnewUser.id)
   if (lrowsnewUser.username.includes(lrowstag) && !lrowsoldUser.username.includes(lrowstag)) {
@@ -142,7 +142,7 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
           );
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "ω"
-  let lrowssunucu = client.guilds.find(e => e.id === `752170350472724580`)
+  let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
   let lrowsrol = lrowssunucu.roles.find(a => a.id === `772814848521666570`)
   let lrowsuye = lrowssunucu.members.get(lrowsoldUser.id)
   if (lrowsoldUser.username.includes(lrowstag) && !lrowsnewUser.username.includes(lrowstag)) {

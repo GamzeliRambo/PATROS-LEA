@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  if (!message.member.roles.has("kullanacağı rol id"))
+  if (!message.member.roles.cache.has("772059661690994719"))
     return message.channel.send(
       `Bu komutu kullanabilmek için \`kullanacağı rol isimi\` yetkisine sahip olmasınız.`
     );
@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
   lrowsmember.roles.add("770996442818674715"); //verilecek rol
   lrowsmember.roles.remove("770996528729817138"); //alınacak rol
   lrowsmember.roles.remove("770996315676737537"); //alınacak rol
-  let lrowsembed = new Discord.MesageEmbed()
+  let lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setDescription(                  //rol id buraya girin
       `${lrowskullanıcı} **üyesine** <@770996442818674715> **rolü verildi!**`
