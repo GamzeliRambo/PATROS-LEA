@@ -29,7 +29,7 @@ exports.run = async(client, message, args) => {
     db.set(`otorolisim_${message.guild.id}`, isim)
   let i = await  db.set(`otorolKanal_${message.guild.id}`, message.mentions.channels.first().id)
   let otorol = await db.set(`autoRole_${message.guild.id}`, newRole)
-  if (!message.guild.roles.get(newRole)) return message.channel.send("  Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.")
+  if (!message.guild.roles.cache.get(newRole)) return message.channel.send("  Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.")
     message.channel.send(`Otorol, <@&${newRole}> mesaj kanalı <#${i}> olarak ayarlandı `)  
      
   } 
