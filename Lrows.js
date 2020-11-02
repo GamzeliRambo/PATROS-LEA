@@ -155,6 +155,7 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   }
 }
           ); //OTO ROL
+/*
 client.on('guildMemberAdd', async lrowsmember => {
   
 let lrowskanal1 = await db.fetch(`otorolkanal_$lrowsmember.guild.id}`);
@@ -176,6 +177,7 @@ lrowskanal2.send(lrowsembed)
   
 lrowsmember.roles.add(lrowsrol2)
 });
+*/
 //İSİM AYARLAMA
 client.on('guildMemberAdd', lrowsmember => {
   lrowsmember.setNickname(`${lrowsmember.user.username}`)//Sunucuya Katılanın İsmini Değiştirir
