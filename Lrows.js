@@ -112,72 +112,64 @@ client.on('error', e => {
 
 client.login(ayarlar.token);
 
-// OYNUYOR KISIMI
+//OYNUYOR
 
 client.on('ready', () => {
     client.user.setPresence({
         game: {
             name: `Lrowsxrd Public Register`,
-            type: 'WATCHING',
+            type: 'PLAYING',
             // PLAYING:Oynuyor//WATCHING:İzliyor// LISTENING:Dinliyor//STREAMING:Yayında
         },
-              status: 'dnd'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
+              status: 'idle'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
     })
 })
-
-
-
-// OTO TAG 
-
-client.on('userUpdate', async (oldUser, newUser) => {
-  var tag3 = "sunucu tagınız"
-  let sunucu = client.guilds.find(e => e.id === `sunucu id`)
-  let rol = sunucu.roles.find(a => a.id === `tag rol id`)
-  let uye = sunucu.members.get(newUser.id)
-  if (newUser.username.includes(tag3) && !oldUser.username.includes(tag3)) {
-    uye.addRole('tag alınca verilecek rol id')
+//OTOTAG 
+client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
+  var lrowstag = "ω"
+  let lrowssunucu = client.guilds.find(e => e.id === `752170350472724580`)
+  let rol = lrowssunucu.roles.find(a => a.id === `772814848521666570`)
+  let lrowsuye = lrowssunucu.members.get(lrowsnewUser.id)
+  if (lrowsnewUser.username.includes(lrowstag) && !lrowsoldUser.username.includes(lrowstag)) {
+    lrowsuye.addRole('772814848521666570')
     let lrowsembed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
-    .setDescription(` <@${newUser.id}> **adlı üye** "sunucu tagınız" **tagımızı aldığı için** <@&verilecek rol id> **rolü verildi!**`)
-    client.channels.cache.get(`log kanal id`).send (lrowsembed)
+    .setDescription(` <@${lrowsnewUser.id}> **adlı üye** "ω" **tagımızı aldığı için** <@&772814848521666570> **rolü verildi!**`)
+    client.channels.cache.get(`772815188185186334`).send (lrowsembed)
 
   }
 }
           );
-
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
-  var tag3 = "sunucu tagınız"
-  let sunucu = client.guilds.find(e => e.id === `sunucu id`)
-  let rol = sunucu.roles.find(a => a.id === `tag ro lid`)
-  let uye = sunucu.members.get(oldUser.id)
-  if (oldUser.username.includes(tag3) && !newUser.username.includes(tag3)) {
-    uye.removeRole('alınacak rol id')
+  var lrowstag = "ω"
+  let lrowssunucu = client.guilds.find(e => e.id === `752170350472724580`)
+  let lrowsrol = lrowssunucu.roles.find(a => a.id === `772814848521666570`)
+  let lrowsuye = lrowssunucu.members.get(lrowsoldUser.id)
+  if (lrowsoldUser.username.includes(lrowstag) && !lrowsnewUser.username.includes(lrowstag)) {
+    lrowsuye.removeRole('772814848521666570')
     let lrowsembedd = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(` <@${oldUser.id}> **adlı üye** "ᖪ" **tagımızı çıkardığı için** <@&alınacak rol id> **rolü alındı!**`)
-    client.channels.cache.get(`log kanal id`).send (lrowsembedd)
+    .setDescription(` <@${lrowsoldUser.id}> **adlı üye** "ω" **tagımızı çıkardığı için** <@&772814848521666570> **rolü alındı!**`)
+    client.channels.cache.get(`772815188185186334`).send (lrowsembedd)
 
   }
 }
           ); //OTO ROL
-  client.on("guildMemberAdd", async (member) => {
-    member.addRole("verilecek rol id")
-    const logChannel = member.guild.channels.find(
-      channel => channel.id === "log gönderilecek kanal id" //otorol log kanal id
+  client.on("guildMemberAdd", async (lrowsmember) => {
+    lrowsmember.addRole("770996315676737537")
+    const lrowslogChannel = lrowsmember.guild.channels.find(
+      lrowschannel => lrowschannel.id === "772814727390429214" //otorol log kanal id
     );
-    const embed = new Discord.MessageEmbed()
+    const lrowsembed = new Discord.MessageEmbed()
       .setColor("RED")                                                     //verilecek rol id girin
-      .addField(`Sunucu adınız` , `• ${member} adlı üye sunucumuza katıldı, <@&verilecek rol id> rolünü verdim!\n • Sunucumuz artık \`${member.guild.memberCount}\` üyeye sahip.! `
+      .addField(`Sunucu adınız` , `• ${lrowsmember} adlı üye sunucumuza katıldı, <@&verilecek rol id> rolünü verdim!\n • Sunucumuz artık \`${lrowsmember.guild.memberCount}\` üyeye sahip.! `
       );
-    logChannel.send(embed);
+    lrowslogChannel.send(lrowsembed);
   }); 
-
-
 //İSİM AYARLAMA
 client.on('guildMemberAdd', lrowsmember => {
   lrowsmember.setNickname(`${lrowsmember.user.username}`)//Sunucuya Katılanın İsmini Değiştirir
  });
-
 // OTO MESAJ
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === '!tag') {
@@ -206,7 +198,7 @@ client.on('message', msg => {
 client.on("ready", () => {
   console.log(`Bot aktif!`);
   setInterval(function() {
-    let lrowskanal = client.channels.cache.get("mesajı atacak kanal id");//kanal id girmeniz yeterli olacaktır
+    let lrowskanal = client.channels.cache.get("772814626948907038  ");//kanal id girmeniz yeterli olacaktır
     if (lrowskanal) {
       lrowskanal.send(
         "Kanala atacak mesajınızı giriniz"
@@ -214,36 +206,34 @@ client.on("ready", () => {
     }
   }, 7200000);
 });
-
-
 // HOŞ GELDİN
 // KANALLI HOŞGELDİN
 
 client.on("guildMemberAdd", lrowsmember => {
-  var lrowstag = ""; // Sunucu Tagınızı Girin
-  const logChannel = lrowsmember.guild.channels.find(
-    channel => channel.id === "" //hoşgeldin kanal idsi
+  var lrowstag = "ω"; // Sunucu Tagınızı Girin
+  const lrowslogChannel = lrowsmember.guild.channels.find(
+    lrowschannel => lrowschannel.id === "772813754819411969" //hoşgeldin kanal idsi
   );
-  const embed = new Discord.MessageEmbed()
-    .setColor("RED")
+  const lrowsembed = new Discord.MessageEmbed()
+    .setColor("BLACK")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
       `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#kuralların olduğu kanal id> **Odasından Bakabilirsin.**`
     );
   
-  logChannel.send(embed);
+  lrowslogChannel.send(lrowsembed);
 }); 
 
 // DM HOŞGELDİN
 
-client.on(`guildMemberAdd`, async member => {
+client.on(`guildMemberAdd`, async lrowsmember => {
   const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
     .setImage(`https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Findir.gif?v=1604270383088`)
     .addField(0
-      `• Sunucumuza hoş geldin!`,
+      `Sunucumuza hoş geldin!`,
       `Tagımızı Alarak Bize Destek Olabilirsin.`
     )
-  member.send(e);
+  lrowsmember.send(e);
 }); 
 
 
