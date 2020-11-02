@@ -221,13 +221,13 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", lrowsmember => {
   var lrowstag = "ω"; // Sunucu Tagınızı Girin
-  const lrowslogChannel = lrowsmember.guild.channels.find(
-    lrowschannel => lrowschannel.id === "772813754819411969" //hoşgeldin kanal idsi
+  const lrowslogChannel = lrowsmember.guild.channels.cache.find(
+    lrowschannel => lrowschannel.id === "772814727390429214" //hoşgeldin kanal idsi
   );
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
-      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#kuralların olduğu kanal id> **Odasından Bakabilirsin.**`
+      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#772813754819411969> **Odasından Bakabilirsin.**Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
     );
   
   lrowslogChannel.send(lrowsembed);
@@ -236,13 +236,15 @@ client.on("guildMemberAdd", lrowsmember => {
 // DM HOŞGELDİN
 
 client.on(`guildMemberAdd`, async lrowsmember => {
+let lrowstag = 'ω';
   const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
     .setImage(`https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Findir.gif?v=1604270383088`)
-    .addField(0
+    .addField(
       `Sunucumuza hoş geldin!`,
       `Tagımızı Alarak Bize Destek Olabilirsin.`
     )
+.add
   lrowsmember.send(e);
 }); 
 

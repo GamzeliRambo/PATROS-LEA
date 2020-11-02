@@ -18,7 +18,7 @@ const lrowsembed = new Discord.MessageEmbed()
 
 .setColor("BLACK")
 
-.setDescription(`Otorol Rolü **@${lrowsrol.name}** Olarak, Bildirimin Gideceği Kanal İse **#${lrowskanal.name}** Olarak Ayarlandı. \n \nn **Not: Botun Rolü En Üstte Olmaz İse Rol Vermez.**`)
+.setDescription(`Otorol Rolü **@${lrowsrol.name}** Olarak, Bildirimin Gideceği Kanal İse **#${lrowskanal.name}** Olarak Ayarlandı. \n \n **Not: Botun Rolü En Üstte Olmaz İse Rol Vermez.**`)
 
 message.channel.send(lrowsembed)
 };
