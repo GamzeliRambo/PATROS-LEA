@@ -16,6 +16,7 @@ exports.run = async (client, message, args) => {
   let lrowsembed = new Discord.MessageEmbed()
     .setColor("RED")
     .addField(`Sunucu adınız`, `${lrowskullanıcı} **adlı üyenin cezası kalktı! **`)
+    .setImage("https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Findir.gif?v=1604270383088")
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);
   message.react("verilecek tepki id");
   return message.channel.send(lrowsembed);

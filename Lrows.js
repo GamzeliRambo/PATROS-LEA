@@ -126,7 +126,7 @@ client.on('ready', () => {
 })
 //OTOTAG 
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
-  var lrowstag = "ω"
+  var lrowstag = "ω"//tagı buraya girmeniz yeterli olacaktır
   let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
   let rol = lrowssunucu.roles.cache.find(a => a.id === `772814848521666570`)
   let lrowsuye = lrowssunucu.members.cache.get(lrowsnewUser.id)
@@ -141,7 +141,7 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 }
           );
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
-  var lrowstag = "ω"
+  var lrowstag = "ω"//tagı braya girmeniz yeterli olacaktır
   let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
   let lrowsrol = lrowssunucu.roles.cache.find(a => a.id === `772814848521666570`)
   let lrowsuye = lrowssunucu.members.cache.get(lrowsoldUser.id)
@@ -224,13 +224,13 @@ client.on("ready", () => {
 client.on("guildMemberAdd", lrowsmember => {
   var lrowstag = "ω"; // Sunucu Tagınızı Girin
   const lrowslogChannel = lrowsmember.guild.channels.cache.find(
-    lrowschannel => lrowschannel.id === "772814727390429214" //hoşgeldin kanal idsi
+    lrowschannel => lrowschannel.id === "772814727390429214" //regiser-chat id 
   );
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
     .setImage("https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Fwenzy.png?v=1604341793534")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
-      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#772813754819411969> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
+      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773103720384823298> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
     );
    
   

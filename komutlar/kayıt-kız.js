@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
   lrowsmember.roles.remove("770996315676737537"); //alınacak rol
   let lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
-    .setDescription(                  //rol id buraya girin
+    .setDescription(                
       `${lrowskullanıcı} **üyesine** <@&770996442818674715> **rolü verildi!**`
     )
     .setFooter(`Komutu kullanan yetkili : ${message.author.username}`);

@@ -42,8 +42,7 @@ exports.run = async (client, message, args) => {
 
   let lrowsembed = new Discord.MessageEmbed()
     .setDescription(`${lrowskullanıcı} Adlı Üye Jaile Atıldı!`)
-    .setImage(
-      "https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2FPrison-Break.png?v=1604269626551")
+    .setImage("https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Fxx.gif?v=1604393196622")
     .setColor("BLACK")
     .setFooter(`Lrows Jail Sistemi`)
     .setTimestamp();
