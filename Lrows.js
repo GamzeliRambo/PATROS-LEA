@@ -230,7 +230,7 @@ client.on("guildMemberAdd", lrowsmember => {
     .setColor("BLACK")
     .setImage("https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Fwenzy.png?v=1604341793534")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
-      `${lrowstag} ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773103720384823298> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
+      `${lrowstag} <:wenzy_hypesquad:759829742349451294> ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773103720384823298> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
     );
    
   
@@ -312,5 +312,5 @@ client.on("message", async message => {
 // Botu Sesliye Sokma Komutudur.
 
 client.on('ready', ()=>{
-client.channels.cache.get('772085519635054592').join()//SESLI KANAL IDSINI GIRIN
+client.channels.cache.get('773107497820094494').join()//SESLI KANAL IDSINI GIRIN
 })
