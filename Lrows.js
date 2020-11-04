@@ -224,7 +224,7 @@ client.on("ready", () => {
 client.on("guildMemberAdd", lrowsmember => {
   var lrowstag = "ω"; // Sunucu Tagınızı Girin
   const lrowslogChannel = lrowsmember.guild.channels.cache.find(
-    lrowschannel => lrowschannel.id === "772814727390429214" //regiser-chat id 
+    lrowschannel => lrowschannel.id === "773266406208307210" //regiser-chat id 
   );
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
@@ -312,5 +312,5 @@ client.on("message", async message => {
 // Botu Sesliye Sokma Komutudur.
 
 client.on('ready', ()=>{
-client.channels.cache.get('773107497820094494').join()//SESLI KANAL IDSINI GIRIN
+client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
 })
