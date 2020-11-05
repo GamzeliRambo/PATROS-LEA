@@ -286,3 +286,16 @@ let channelp = channel.parentID;
   });
   }
 })
+///////////////////////////////////////////////////////////////////
+client.on("message", async msg => {
+   if(!msg.guild) return
+  let saas = await db.fetch(`saas_${msg.guild.id}`);
+  if (saas == 'kapalii') return;
+  if (saas == 'aciki') {
+  if (msg.content.toLowerCase() === 'sa') {
+    msg.channel.send(`Aleyküm Selam Hoşgeldin. ${msg.author} <a:577677056876347403:708395193484968038>`);
+    await msg.react('🇦');
+    await msg.react('🇸');
+  }
+  }
+});

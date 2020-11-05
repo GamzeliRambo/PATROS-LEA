@@ -1,52 +1,55 @@
-const Discord = require('discord.js');
-const db = require('quick.db');
+const Discord = require("discord.js");
+const db = require("quick.db");
+const ayarlar = require("../ayarlar.json");
+var p = ayarlar.prefix
 
-exports.run = async(client, message, args) => {
-   if(!message.member.roles.cache.has('773266328785387570')) return message.channel.send('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin : `rôl adı`')
-   let member = message.mentions.users.first() || client.users.cache.get(args.join(' '))
-   if(!member) {
-       return message.channel.send('Bir kişi etiketlemelisin')
-   }
-   let kız = message.guild.roles.cache.find(r => r.id === '773266337094434816')
-   let kayıtsız = message.guild.roles.cache.find(r => r.id === '773266340387356693')
+exports.run = async(client, message, args) => { 
 
-   if(!kız) {
-       return message.channel.send('Kız rolü ayarlanmamış veya rol aranırken bir hata oluştu logu kontrol et')
-   }
-   if(!kayıtsız) {
-       return message.channel.send('kayıtsız rolü ayarlanmamış veya rol aranırken bir hata oluştu logu kontrol et')
-   }
-   let kayıt = message.guild.member(member)
-   let isim = args[1]
-   let yas = args[2]
 
-   if(!isim) return message.channel.send('İsim belirtmelisin')
-   if(isNaN(yas)) return message.channel.send('Yaş belirtmelisin')
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return console.log("Bu Sistem DM'de Kullanilamaz")
 
-   kayıt.setNickname(`${isim} • ${yas}`)
-   kayıt.roles.add(kız)
-   kayıt.roles.remove(kayıtsız)
-   let embed = new Discord.MessageEmbed()
-   .setColor('Pink')
-    .setThumbnail(
-      `https://media.giphy.com/media/GK4fqMLcRenew/giphy.gif`)
-   .setTitle('Kayıt Tamamlandı')
-   .addField('Kayıt edilen kullanıcı',member)
-   .addField('Adı :', isim)
-   .addField('Yaşı :', yas)
-   .addField('Kayıt eden yetkili', message.author)
-   client.channels.cache.get('773266406208307210').send(embed)///LOG KANAL İD YAZMALISIN
+
+    if(message.member.roles.cache.has('773266328785387570')) {
+
+    let kdn = db.fetch(`kdn_${message.guild.id}`)
+    
+    let member = message.mentions.members.first();
+    let isim = args.slice(1,2).join("");
+    let yas = args.slice(2,3).join("");
+
+    const embed2 = new Discord.MessageEmbed()
+    .setAuthor(`Hatalı Komut`, client.user.displayAvatarURL())
+    .setDescription(`Örnek Kullanım: ${p}kadın @Sadist Lale 20`)
+
+
+    if (!member) return message.channel.send(embed2);
+    if (!isim) return message.channel.send(embed2);
+    if (!yas) return message.channel.send(embed2);
+    member.setNickname(`${isim} | ${yas}`);
+    
+    member.roles.add(kdn) //Bunu Alt Alta Koyarak İstediğiniz Kadar Rol Verebilirsiniz Kayıt Yaparken
+    const embed = new Discord.MessageEmbed()
+    .setAuthor(`Kayıt Sistemi`, client.user.displayAvatarURL())
+    .setDescription(`${message.author.username} Adlı Yetkili Tarafından ${member}  Adlı Kişiye Kadın Rolü Verildi`)
+    message.channel.send(embed)
+    }else{
+      message.author.send("Bu Komutu Sadece **Yönetici** Yetkisi Olanlar Erişebilir!")
+    }
+
 }
 
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: ['kız','k','kadın','bayan'],
-    permLevel: 0
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0,
+
 };
 
 exports.help = {
-    name: 'kız',
-    description: 'kız ',
-    usage: 'kız'
+  name: 'kadın',
+  description: '',
+  usage: '',
+ 
 };

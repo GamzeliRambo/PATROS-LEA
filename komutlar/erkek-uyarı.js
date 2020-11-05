@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
         .setDescription(`${message.author.username} Adlı Yetkili Tarafından ${member}  Adlı Kişiye Erkek Rolü Verildi`)
         message.channel.send(embed)
         }else{
-          message.author.send("Bu Komutu Sadece **Yönetici** Yetkisi Olanlar Erişebilir!")
+          message.author.send("Gerekli Yetkiye Sahip Değilsin!**")
         }
 
 
