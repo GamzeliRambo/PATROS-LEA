@@ -264,56 +264,7 @@ client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
 })
 //-------------KOMUTLAR-------\\
 ////////////////////////////////////////ROL KORUMA/////////////////////////////////////////////////////////////////////////
-client.on("roleDelete", async (role) => {
-   if(!db.fetch(`rol_${role.guild.id}`)) return
-  const entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
-  let yetkili = entry.executor;
-   if (db.has(`wh_${yetkili.id}`)) return
-   
-let embed = new Discord.MessageEmbed()
-    .setTitle('Rol Koruması Uyarı')
-    .setDescription(`
-    > __Birisi sunucudan rol silmeye çalıştı,rol koruma sistemim açık olduğu için rolü tekrar oluşturdum ve bu role sahip olan kullanıcılara geri vermeye başladım.Aşağıda detaylar gözükmektedir.Rol silmek için lütfen bu ayarı kapatınız.__\n
-    > Silen Kişi :   ${yetkili} | \`${yetkili.id}\`
-    > Silinen Rol : ${role.name} | \`${role.id}\`
-    `)
-     .setTimestamp()
-     .setFooter('Silinme Tarihi')
-  let logKanali = "768814041551994891";
-  let yeniRol = await role.guild.createRole({name: role.name, color: role.color, hoist: role.hoist, position: role.position, permissions: role.permissions, mentionable: role.mentionable});
-  role.guild.owner.send(embed);
-  setTimeout(() => {
-    let veri = roleDefender[role.id];
-    let index = 0;
-    setInterval(() => {
-      veri = roleDefender[role.id];
-      if (index >= veri.Üyeler.length){
-        delete roleDefender[role.id];
-        clearInterval(this);
-      };
-      let kisi = role.guild.members.get(veri.Üyeler[index]);
-      try { kisi.addRole(yeniRol); } catch(err) { };
-  
-      index++;
-    }, 2000);
-  }, 5000);
-});
-// Alosha & Yashinu tarafından, Discord.JS dersinde yazılmıştır. Paylaşılması yasaktır!
-const roleDefender = {};
-client.on("guildMemberUpdate", async (oldMember, newMember) => {
-  oldMember.roles.forEach(async role => {
-    if (newMember.roles.some(r => r.id == role.id)) return;
-    if (!roleDefender[role.id]) {
-      roleDefender[role.id] = {
-        Rol: role,
-        Üyeler: [newMember.id],
-        Silindi: false
-      };
-    } else {
-      roleDefender[role.id].Üyeler.push(newMember.id);
-    };
-  });
-});
+
 
 ///////////////////////////
 
