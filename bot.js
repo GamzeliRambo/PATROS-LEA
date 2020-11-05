@@ -158,32 +158,8 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
           ); 
 //OTO ROL
 
-client.on('guildMemberAdd', async lrowsmember => {
-  
-let lrowskanal1 = await db.fetch(`otorolkanal_$lrowsmember.guild.id}`);
-let lrowskanal2 = lrowsmember.guild.channels.cache.get(lrowskanal1)
 
-let lrowsrol1 = await db.fetch(`otorolrol_${lrowsmember.guild.id}`);
-let lrowsrol2 = lrowsmember.guild.roles.cache.get(lrowsrol1)
 
-if (!lrowskanal2) return;
-if (!lrowsrol2) return;
-  
-const lrowsembed = new Discord.MessageEmbed()
-
-.setColor("BLACK")
-
-.setDescription(`Sunucuya Katılan **${lrowsmember}** Adlı Kullanıcıya Başarıyla \`${lrowsrol2.name}\` Rolü Verildi.`)
-
-lrowskanal2.send(lrowsembed)
-  
-lrowsmember.roles.add(lrowsrol2)
-});
-
-//İSİM AYARLAMA
-client.on('guildMemberAdd', member => {  
- member.setNickname('İsim • Yaş')////YENI GELENLERE VERILCEK ISIM
-})
 // OTO MESAJ
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === '!tag') {
