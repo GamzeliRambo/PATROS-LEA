@@ -19,8 +19,6 @@ module.exports.run = async (bot, message, args) => {
     return message.reply(
       `:warning: Yetkili bir kişiyi muteleyemem! \nDoğru Kullanım; \`${prefix}mute <@kullanıcı> <1sn/1dk/1sa/1g>\``
     );
-//OGÜNABİ BUNDAN SONRASINI SEN YAP BEN KARIŞTIRDIM
-//Tamam Bende Paşa Hallederim Bunu
   let sebep = args.splice(2, args.length).join(" ");
   let muterol = message.guild.roles.cache.find(role => role.name == mutelirolu);
   if (!muterol) {
