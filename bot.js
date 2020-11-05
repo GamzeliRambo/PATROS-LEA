@@ -155,8 +155,9 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 
   }
 }
-          ); //OTO ROL
-/*
+          ); 
+//OTO ROL
+
 client.on('guildMemberAdd', async lrowsmember => {
   
 let lrowskanal1 = await db.fetch(`otorolkanal_$lrowsmember.guild.id}`);
@@ -178,7 +179,7 @@ lrowskanal2.send(lrowsembed)
   
 lrowsmember.roles.add(lrowsrol2)
 });
-*/
+
 //İSİM AYARLAMA
 client.on('guildMemberAdd', lrowsmember => {
   lrowsmember.setNickname(`${lrowsmember.user.username}`)//Sunucuya Katılanın İsmini Değiştirir
@@ -220,23 +221,48 @@ client.on("ready", () => {
   }, 7200000);
 });
 // HOŞ GELDİN
-// KANALLI HOŞGELDİN
+///HG MESAJI
+client.on('guildMemberAdd', (member, msg) => {
+  const moment = require('moment')
+	let günler = {
+      "0": "Pazar",
+      "1": "Pazartesi",
+      "2": "Salı",
+      "3": "Çarşamba",
+      "4": "Perşembe",
+      "5": "Cuma",
+      "6": "Cumartesi",
+	}
+	  let aylar = {
+			"01": "Ocak",
+			"02": "Şubat",
+			"03": "Mart",
+			"04": "Nisan",
+			"05": "Mayıs",
+			"06": "Haziran",
+			"07": "Temmuz",
+			"08": "Ağustos",
+			"09": "Eylül",
+			"10": "Ekim",
+			"11": "Kasım",
+			"12": "Aralık"
+    }
+  let endAt = member.user.createdAt
+      let gün = moment(new Date(endAt).toISOString()).format('DD')
+      let ay = moment(new Date(endAt).toISOString()).format('MM').replace("01", "Ocak").replace("02","Şubat").replace("03","Mart").replace("04", "Nisan").replace("05", "Mayıs").replace("06", "Haziran").replace("07", "Temmuz").replace("08", "Ağustos").replace("09", "Eylül").replace("10","Ekim").replace("11","Kasım").replace("12","Aralık")
+     let yıl =  moment(new Date(endAt).toISOString()).format('YYYY')
+     let saat = moment(new Date(endAt).toISOString()).format('HH:mm')
+let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
+   // let kuruluş = moment(user.author.createdAt).format('YYYY-MM-DD HH:mm:ss')
+	//let kuruluş = user.createdAt.toDateString().replace("Sun","Pazar").replace("Mon","Pazartesi").replace("Tue","Salı").replace("Wed","Çarşamba").replace("Thu","Perşembe").replace("Fri","Cuma").replace("Sat","Cumartesi").replace("Jan","Ocak").replace("Feb","Şubat").replace("Mar","Mart").replace("Apr","Nisan").replace("May","Mayıs").replace("June","Haziran").replace("July","Temmuz").replace("Aug","Ağustos").replace("Sep","Eylül").replace("Oct","Ekim").replace("Nov","Kasım").replace("Dec","Aralık")   
+	let oskobs = new Discord.MessageEmbed()
+	.setColor("BLACK")
+    .setDescription(`<a:emojiisim:emojiid>** <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \`${member.guild.memberCount}\` **Üyeye Ulaştık** \n<a:emojiisim:emojiid>**Sunucumuzda Kanalları Görebilmen İçin Kayıt Olman Gerekli Bunun İçin İse Yanda Bulunan Ses Kanallarına Girerek Kayıt Olabilirsin**\n<a:emojiisim:emojiid>  **<@&yetkilirolid> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <a:emojiisim:emojiid> **Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
+.setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif")  
+client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
+})
 
-client.on("guildMemberAdd", lrowsmember => {
-  var lrowstag = "Ꮙ"; // Sunucu Tagınızı Girin
-  const lrowslogChannel = lrowsmember.guild.channels.cache.find(
-    lrowschannel => lrowschannel.id === "773266406208307210" //regiser-chat id 
-  );
-  const lrowsembed = new Discord.MessageEmbed()
-    .setColor("BLACK")
-    .setImage("https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif")
-    .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
-      `${lrowstag} <:beyinsiz:773278167221141554> ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773875422454480916> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&773266340387356693> bekle.**`
-    );
-   
-  
-  lrowslogChannel.send(lrowsembed);
-}); 
+
 
 // DM HOŞGELDİN
 
@@ -254,7 +280,7 @@ let lrowstag = 'Ꮙ';
 }); 
 
 
-//AFK KOMUT
+
 
 
 // Botu Sesliye Sokma Komutudur.
