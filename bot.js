@@ -117,11 +117,11 @@ client.login(ayarlar.token);
 client.on('ready', () => {
     client.user.setPresence({
         game: {
-            name: `Lrowsxrd Public Register`,
-            type: 'PLAYING',
+            name: `Vexo `,
+            type: 'WATCHING',
             // PLAYING:Oynuyor//WATCHING:İzliyor// LISTENING:Dinliyor//STREAMING:Yayında
         },
-              status: 'idle'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
+              status: 'online'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
     })
 })
 //-------------KOMUTLAR-------\\
