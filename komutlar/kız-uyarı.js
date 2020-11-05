@@ -16,7 +16,7 @@ exports.run = async(client, message, args) => {
             db.set(`kdn_${message.guild.id}`, is3.id)
             message.channel.send("Kadın Rolü Ayarlandı:  <@&" + is3 + ">")
           }else{
-            message.reply("Gerekli Yetkiye Sahip Değilsin!").then(msg => {
+            message.reply("**Gerekli Yetkiye Sahip Değilsin!**").then(msg => {
               msg.delete({ timeout: 10000 })
             })
         }

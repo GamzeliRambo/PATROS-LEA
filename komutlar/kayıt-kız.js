@@ -26,7 +26,7 @@ exports.run = async(client, message, args) => {
     if (!member) return message.channel.send(embed2);
     if (!isim) return message.channel.send(embed2);
     if (!yas) return message.channel.send(embed2);
-    member.setNickname(`${isim} | ${yas}`);
+    member.setNickname(`Ꮙ ${isim} | ${yas}`);
     
     member.roles.add(kdn) //Bunu Alt Alta Koyarak İstediğiniz Kadar Rol Verebilirsiniz Kayıt Yaparken
     const embed = new Discord.MessageEmbed()

@@ -11,16 +11,16 @@ exports.run = async (client, message, args) => {
     .setColor("RANDOM")
   .setThumbnail(
       `https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
-    .addField("**___Sunucudaki üye sayısı___**", message.guild.memberCount)
+    .addField("**<:tac:773903928596627456> ___Sunucudaki üye sayısı___ <:tac:773903928596627456>**", message.guild.memberCount)
     .addField(
-      "**___Çevrimiçi üye sayısı___**",
+      "**<:go_right:773919887475212358> ___Çevrimiçi üye sayısı___**",
       message.guild.members.cache.filter(
         m => !m.user.bot && m.user.presence.status !== "offline"
       ).size
     )
-    .addField("**___Seslideki üye sayısı___**", count)
+    .addField("**<:go_right:773919887475212358> ___Seslideki üye sayısı___**", count)
     .addField(
-      "**___Tagdaki üye sayısı___**",
+      "**<:go_right:773919887475212358> ___Tagdaki üye sayısı___**",
       message.guild.members.cache.filter(m => m.user.username.includes(tag)).size
     ) // TAG KULLANMIYORSANIZ BU SATIRI SİLEBİLİRSİNİZ
     .setFooter(

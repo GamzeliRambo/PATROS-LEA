@@ -175,7 +175,7 @@ client.on('message', lrowstagmesaj => {
 
 client.on('message', lrowsserverlinkmesaj => {
   if (lrowsserverlinkmesaj.content.toLowerCase() === '!link') {
-    lrowsserverlinkmesaj.channel.send('<:go_right:773919887475212358>**İşte Sunucumuzun Davet Linki! :** https://discord.gg/B3eVAjDgfT ');
+    lrowsserverlinkmesaj.channel.send('<:go_right:773919887475212358>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/B3eVAjDgfT ');
   }
 });
 
@@ -266,7 +266,23 @@ client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
 })
 //-------------KOMUTLAR-------\\
 ////////////////////////////////////////ROL KORUMA/////////////////////////////////////////////////////////////////////////
-
+client.on("roleDelete", async role => {
+         const entry = await role.guild.fetchAuditLogs({ type: "ROLE_DELETE" }).then(audit => audit.entries.first());
+    if (entry.executor.id == client.user.id) return;
+  role.guild.roles.create({ data: {
+          name: role.name,
+          color: role.color,
+          hoist: role.hoist,
+          permissions: role.permissions,
+          mentionable: role.mentionable,
+          position: role.position
+}, reason: 'Silinen Rol Açıldı.'})
+})
+client.on("roleCreate", async role => {
+       const entry = await role.guild.fetchAuditLogs({ type: "ROLE_CREATE" }).then(audit => audit.entries.first());
+    if (entry.executor.id == client.user.id) return;
+  role.delete()
+}) 
 
 ///////////////////////////
 
