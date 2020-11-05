@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 exports.run = async (client, message, args) => {
   if (
-    !message.member.roles.cache.has("770748648186314792")
+    !message.member.roles.cache.has("773266318161608745")
   )
     return message.channel.send(
       new Discord.MessageEmbed()
@@ -26,12 +26,12 @@ exports.run = async (client, message, args) => {
     return message.channel
       .send("Lütfen Bir Sebep Yazınız.")
       .then(m => m.delete(5000));
-  message.react("emoji id");//emoji id girmeniz yeterli olacaktır
+  message.react("<:tik:773279749593890826>");//emoji id girmeniz yeterli olacaktır
   message.guild.members.cache.get(lrowsmember.id).roles.cache.forEach(r => {
     message.guild.members.cache.get(lrowsmember.id).roles.remove(r);
   });
-  lrowsmember.roles.add("772059659904876604");//jail rol id
-  const lrowskanal = message.guild.channels.cache.find(c => c.id == "772886096668524574");//JAIL-LOG KANAL ID
+  lrowsmember.roles.add("773266358501638144");//jail rol id
+  const lrowskanal = message.guild.channels.cache.find(c => c.id == "773266446977466439");//JAIL-LOG KANAL ID
   const lrowsembed1 = new Discord.MessageEmbed()
     .setDescription(
       `${lrowskullanıcı} Adlı Üye **${lrowsreason}** Yüzünden Jaile Atıldı!`
@@ -44,7 +44,7 @@ exports.run = async (client, message, args) => {
     .setDescription(`${lrowskullanıcı} Adlı Üye Jaile Atıldı!`)
     .setImage("https://cdn.glitch.com/65268d0d-753f-4596-8103-069b776714e4%2Fxx.gif?v=1604393196622")
     .setColor("BLACK")
-    .setFooter(`Lrows Jail Sistemi`)
+    .setFooter(`Jail Sistemi`)
     .setTimestamp();
   return message.channel
     .send(lrowsembed)
