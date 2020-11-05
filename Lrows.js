@@ -124,6 +124,7 @@ client.on('ready', () => {
               status: 'idle'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
     })
 })
+//-------------KOMUTLAR-------\\
 //OTOTAG 
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "ω"//tagı buraya girmeniz yeterli olacaktır
@@ -185,25 +186,25 @@ client.on('guildMemberAdd', lrowsmember => {
 // OTO MESAJ
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === '!tag') {
-    lrowstagmesaj.channel.send('ω');//TAG
+    lrowstagmesaj.channel.send('Ꮙ');//TAG
   }
 });
 
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === 'tag') {//TAG
-    lrowstagmesaj.channel.send('ω');
+    lrowstagmesaj.channel.send('Ꮙ');
   }
 });
 
 client.on('message', lrowsserverlinkmesaj => {
   if (lrowsserverlinkmesaj.content.toLowerCase() === '!link') {
-    lrowsserverlinkmesaj.channel.send('**İşte Sunucumuzun Davet Linki! :** `https://discord.gg/wenzy`');
+    lrowsserverlinkmesaj.channel.send('**İşte Sunucumuzun Davet Linki! :** https://discord.gg/B3eVAjDgfT **');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!davet') {
-    msg.channel.send('**İşte Sunucumuzun Davet Linki! :** `https://discord.gg/wenzy`');
+    msg.channel.send('**İşte Sunucumuzun Davet Linki! :** https://discord.gg/B3eVAjDgfT');
   }
 });
 
@@ -222,7 +223,7 @@ client.on("ready", () => {
 // KANALLI HOŞGELDİN
 
 client.on("guildMemberAdd", lrowsmember => {
-  var lrowstag = "ω"; // Sunucu Tagınızı Girin
+  var lrowstag = "Ꮙ"; // Sunucu Tagınızı Girin
   const lrowslogChannel = lrowsmember.guild.channels.cache.find(
     lrowschannel => lrowschannel.id === "773266406208307210" //regiser-chat id 
   );
@@ -230,7 +231,7 @@ client.on("guildMemberAdd", lrowsmember => {
     .setColor("BLACK")
     .setImage("https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
-      `${lrowstag} <:wenzy_hypesquad:759829742349451294> ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773103720384823298> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
+      `${lrowstag} <:beyinsiz:773278167221141554> ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773875422454480916> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&773266340387356693> bekle.**`
     );
    
   
@@ -240,7 +241,7 @@ client.on("guildMemberAdd", lrowsmember => {
 // DM HOŞGELDİN
 
 client.on(`guildMemberAdd`, async lrowsmember => {
-let lrowstag = 'ω';
+let lrowstag = 'Ꮙ';
   const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
     .setImage(`https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
@@ -260,4 +261,40 @@ let lrowstag = 'ω';
 
 client.on('ready', ()=>{
 client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
+})
+//-------------KOMUTLAR-------\\
+client.on("roleDelete", async role => {
+         const entry = await role.guild.fetchAuditLogs({ type: "ROLE_DELETE" }).then(audit => audit.entries.first());
+    if (entry.executor.id == client.user.id) return;
+  role.guild.roles.create({ data: {
+          name: role.name,
+          color: role.color,
+          hoist: role.hoist,
+          permissions: role.permissions,
+          mentionable: role.mentionable,
+          position: role.position
+}, reason: 'Silinen Rol Açıldı.'})
+})
+client.on("roleCreate", async role => {
+       const entry = await role.guild.fetchAuditLogs({ type: "ROLE_CREATE" }).then(audit => audit.entries.first());
+    if (entry.executor.id == client.user.id) return;
+  role.delete()
+  }) 
+///////////////////////////
+
+client.on("channelDelete", async function(channel) {
+    let rol = await db.fetch(`kanalk_${channel.guild.id}`);
+  
+  if (rol) {
+const guild = channel.guild.cache;
+let channelp = channel.parentID;
+
+  channel.clone().then(z => {
+    let kanal = z.guild.channels.find(c => c.name === z.name);
+    kanal.setParent(
+      kanal.guild.channels.find(channel => channel.id === channelp)
+      
+    );
+  });
+  }
 })
