@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 exports.run = async (client, message, args) => {
   if (
-    !message.member.hasPermission("ADMINISTRATOR")
+    !message.member.roles.cache.has("770748648186314792")
   )
     return message.channel.send(
       new Discord.MessageEmbed()
