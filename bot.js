@@ -336,7 +336,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('KICK_MEMBERS')) {
           message.delete();
           
-          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
+          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum')
           
         }
       } catch(err) {
