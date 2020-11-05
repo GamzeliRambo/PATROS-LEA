@@ -5,7 +5,7 @@ const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
 let prefix = ayarlar.prefix// botun prefixi
 
-if(!message.member.roles.cache.has('773266318161608745')) return message.channel.send(`Yetkin yok.`)
+if(!message.member.roles.cache.has('773266328785387570')) return message.channel.send(`Yetkin yok.`)
 if(!args[0]) return message.channel.send(`Sistemi kullanmak için, ${prefix}uyarı ekle/sil/bilgi komutlarını kullanın.`)
 
 
