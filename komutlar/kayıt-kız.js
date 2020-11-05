@@ -29,7 +29,7 @@ exports.run = async(client, message, args) => {
    let embed = new Discord.MessageEmbed()
    .setColor('Pink')
     .setThumbnail(
-      `https://cdn.discordapp.com/attachments/647020372964802583/701525793167245386/Screenshot_1.png`)
+      `https://media.giphy.com/media/GK4fqMLcRenew/giphy.gif`)
    .setTitle('Kayıt Tamamlandı')
    .addField('Kayıt edilen kullanıcı',member)
    .addField('Adı :', isim)

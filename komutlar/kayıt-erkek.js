@@ -29,7 +29,7 @@ exports.run = async(client, message, args) => {//yetkili rol id
    let embed = new Discord.MessageEmbed()
    .setColor('Blue')
    .setThumbnail(
-      `https://cdn.discordapp.com/attachments/647020372964802583/701525793167245386/Screenshot_1.png`)
+      `https://media.giphy.com/media/3lvqNXheb679S/giphy.gif`)
    .setTitle('Kayıt Tamamlandı')
    .addField('Kayıt edilen kullanıcı',member)
    .addField('Adı :', isim)
