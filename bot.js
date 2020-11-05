@@ -336,7 +336,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('KICK_MEMBERS')) {
           message.delete();
           
-          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
+          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
           
         }
       } catch(err) {
@@ -353,7 +353,7 @@ client.on("message", async msg => {
   let a = await db.fetch(`kufur_${msg.guild.id}`)
     if (a == 'acik') {
       const küfür = [
-        "yarak","mk", "amk", "aq", "orospu", "oruspu", "oç", "sikerim", "yarrak", "piç", "amq", "sik", "amcık", "çocu", "sex", "seks", "amına", "orospu çocuğu", "sg", "siktir git","31","ananın amına yarak"
+        "yarak","mk", "amk", "aq","pic", "orospu", "oruspu", "oç", "sikerim", "yarrak", "piç", "amq", "sik", "amcık", "çocu", "sex", "seks", "amına", "orospu çocuğu", "sg", "siktir git","31","ananın amına yarak"
                   ]
             if (küfür.some(word => msg.content.includes(word))) {
           try {
@@ -412,7 +412,6 @@ client.on("messageUpdate", async message => {
 }
 if (!lus) return;
 });
-
 /////////////////////////////
 client.on("messageDelete", async message => {
   let a = await db.fetch(`modlog_${message.guild.id}`)
