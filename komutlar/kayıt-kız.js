@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
   const embed = new Discord.MessageEmbed()
     .setColor("PİNK")
     .setTitle(":butterfly: Kayıt işlemi başarılı :butterfly:")
-    .setImage("https://media.tenor.com/images/5a8496cf0faf284d514a8cedc3f7332d/tenor.gif")
+    .setThumbnail("https://media.tenor.com/images/5a8496cf0faf284d514a8cedc3f7332d/tenor.gif")
     .setDescription(`
 **Kayıt Edilen Kullanıcı** : ${member.user.username}
 **Kayıt Eden Yetkili** : ${message.author.username}
