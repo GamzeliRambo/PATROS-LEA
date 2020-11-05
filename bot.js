@@ -128,30 +128,30 @@ client.on('ready', () => {
 //OTOTAG 
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "Ꮙ"//tagı buraya girmeniz yeterli olacaktır
-  let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
-  let rol = lrowssunucu.roles.cache.find(a => a.id === `772814848521666570`)
+  let lrowssunucu = client.guilds.cache.find(e => e.id === `773264520340045914`)
+  let rol = lrowssunucu.roles.cache.find(a => a.id === `773266333147463731`)
   let lrowsuye = lrowssunucu.members.cache.get(lrowsnewUser.id)
   if (lrowsnewUser.username.includes(lrowstag) && !lrowsoldUser.username.includes(lrowstag)) {
-    lrowsuye.roles.add('772814848521666570')
+    lrowsuye.roles.add('773266333147463731')
     let lrowsembed = new Discord.MessageEmbed()
-    .setColor(`GREEN`)
-    .setDescription(` <@${lrowsnewUser.id}> **adlı üye** "Ꮙ" **tagımızı aldığı için** <@&772814848521666570> **rolü verildi!**`)
-    client.channels.cache.get(`772815188185186334`).send (lrowsembed)
+    .setColor(`#24e7bf`)
+    .setDescription(` <@${lrowsnewUser.id}> **adlı üye** "Ꮙ" **tagımızı aldığı için** <@&773266333147463731> **rolü verildi!**`)
+    client.channels.cache.get(`773266413112262706`).send (lrowsembed)
 
   }
 }
           );
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "Ꮙ"//tagı braya girmeniz yeterli olacaktır
-  let lrowssunucu = client.guilds.cache.find(e => e.id === `752170350472724580`)
-  let lrowsrol = lrowssunucu.roles.cache.find(a => a.id === `772814848521666570`)
+  let lrowssunucu = client.guilds.cache.find(e => e.id === `773264520340045914`)
+  let lrowsrol = lrowssunucu.roles.cache.find(a => a.id === `773266333147463731`)
   let lrowsuye = lrowssunucu.members.cache.get(lrowsoldUser.id)
   if (lrowsoldUser.username.includes(lrowstag) && !lrowsnewUser.username.includes(lrowstag)) {
-    lrowsuye.roles.remove('772814848521666570')
+    lrowsuye.roles.remove('773266333147463731')
     let lrowsembedd = new Discord.MessageEmbed()
-    .setColor(`RED`)
-    .setDescription(` <@${lrowsoldUser.id}> **adlı üye** "Ꮙ" **tagımızı çıkardığı için** <@&772814848521666570> **rolü alındı!**`)
-    client.channels.cache.get(`772815188185186334`).send (lrowsembedd)
+    .setColor(`#ff0000`)
+    .setDescription(` <@${lrowsoldUser.id}> **adlı üye** "Ꮙ" **tagımızı çıkardığı için** <@&773266333147463731> **rolü alındı!**`)
+    client.channels.cache.get(`773266413112262706`).send (lrowsembedd)
 
   }
 }
@@ -233,7 +233,7 @@ let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
 	//let kuruluş = user.createdAt.toDateString().replace("Sun","Pazar").replace("Mon","Pazartesi").replace("Tue","Salı").replace("Wed","Çarşamba").replace("Thu","Perşembe").replace("Fri","Cuma").replace("Sat","Cumartesi").replace("Jan","Ocak").replace("Feb","Şubat").replace("Mar","Mart").replace("Apr","Nisan").replace("May","Mayıs").replace("June","Haziran").replace("July","Temmuz").replace("Aug","Ağustos").replace("Sep","Eylül").replace("Oct","Ekim").replace("Nov","Kasım").replace("Dec","Aralık")   
 	let oskobs = new Discord.MessageEmbed()
 	.setColor("BLACK")
-    .setDescription(`<:go_right:773919887475212358>** <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \`${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773903928596627456>**Kaydının yapılması için sesli odaya gelip ses vermen gerekli. **\n <:darwin:773903933251911720>** <@&773266328785387570> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:lolo:773903929611255839>**Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
+    .setDescription(` <:go_right:773919887475212358>** <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \` ${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773903928596627456>**Kaydının yapılması için sesli odaya gelip ses vermen gerekli. **\n <:darwin:773903933251911720>** <@&773266328785387570> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:lolo:773903929611255839>**Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
 .setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif")  
 client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
 })
@@ -314,14 +314,3 @@ client.on("message", async msg => {
   }
 });
 ////////////////////////////////////////////
-client.on('guildMemberAdd', member => {
-  let xfalcon = client.channels.get('773266406208307210')
-  if(!xfalcon) return
-  let kullanıcı = client.users.get(member.id)
-  const kurulus = new Date().getTime()- kullanıcı.createdAt.getTime();
-  let devtr;
-  if (kurulus < 1296000000) devtr = 'Güvenilir Değil!'
-  if (kurulus > 1296000000) devtr = 'Güvenilir!'
-  xfalcon.send(`${member} Kullanıcısı Katıldı!
-**Güvenirlik Durumu** : *${devtr}*`)
-})

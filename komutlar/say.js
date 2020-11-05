@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let tag = "ϡ"; // TAGINIZI BURAYA GİRİN
+  let tag = "Ꮙ"; // TAGINIZI BURAYA GİRİN
   const voiceChannels = message.guild.channels.cache.filter(c => c.type === "voice");
   let count = 0;
   for (const [id, voiceChannel] of voiceChannels)
