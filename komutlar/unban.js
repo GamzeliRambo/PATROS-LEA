@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
   .addField('Banı Açılan Üye', `<@${user}>`)
   .addField('Banı Açan Yetkili', `<@${message.author.username}#${message.author.discriminator}>`)
   .addField('Banı Açma Sebebi', "```" + reason + "```")
-  client.channels.cache.get('764861681288609795').send(embed)///LOG KANAL İD YAZMALISIN
+  client.channels.cache.get('773266445491634187').send(embed)///LOG KANAL İD YAZMALISIN
   message.guild.members.unban(user);
   
 
