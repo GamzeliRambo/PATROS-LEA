@@ -9,7 +9,9 @@ exports.run = async (client, message, args) => {
 
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("RANDOM")
+   .setTitle(`\`•${message.guild.name}Sunucu İstatistikleri \` `)
   .setThumbnail(
+    
       `https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
     .addField("**<:tac:773903928596627456> ___Sunucudaki üye sayısı___ <:tac:773903928596627456>**", message.guild.memberCount)
     .addField(
