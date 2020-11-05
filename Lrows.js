@@ -228,7 +228,7 @@ client.on("guildMemberAdd", lrowsmember => {
   );
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("BLACK")
-    .setImage("https://cdn.discordapp.com/avatars/548000719647801357/a_2ec9b3b3c580c96f2c547ad7d4616961.webp")
+    .setImage("https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif")
     .setDescription(                                                                                                                                                    //tam altına kurallar kanal idsi
       `${lrowstag} <:wenzy_hypesquad:759829742349451294> ${lrowsmember} **Hoş Geldin , Seninle Beraber** \`${lrowsmember.guild.memberCount}\` **Üyeye Ulaştık.**\n${lrowstag} **Sunucumuzun** \`Kurallarına\` <#773103720384823298> **Odasından Bakabilirsin.** **\n${lrowstag} Kayıt olmak istersen ismini ve yaşını yaz <@&770996527350677526> bekle.**`
     );
@@ -243,7 +243,7 @@ client.on(`guildMemberAdd`, async lrowsmember => {
 let lrowstag = 'ω';
   const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
-    .setImage(`https://cdn.discordapp.com/avatars/548000719647801357/a_2ec9b3b3c580c96f2c547ad7d4616961.webp`)
+    .setImage(`https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
     .addField(
       `Sunucumuza hoş geldin!`,
       `Tagımızı Alarak Bize Destek Olabilirsin.`
