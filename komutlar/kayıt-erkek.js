@@ -21,7 +21,7 @@ await member.setNickname(`${isim} | ${yas}`)
   let embed = new Discord.MessageEmbed() 
   .setColor("RANDOM")
   .setTimestamp()
-  .addField(`Kayıt İşlemi Başarılı`, `<@!${member.id}> **Adlı Kullanıcıya <@&773266337396162572> Rolünü Verdim ve İsmini**  • **İsim Yaş:** \${isim} | ${yas}\` **Olarak Düzenledim**`) 
+  .addField(`Kayıt İşlemi Başarılı`, `<@!${member.id}> **Adlı Kullanıcıya <@&ROL> Rolünü Verdim ve İsmini** \n\`${isim} | ${yas}\` **Olarak Düzenledim**`) 
   .setFooter(`Komutu Kullanan Yetkili : ${message.author.username}` ,message.author.avatarURL({dynamic: true }))
   return message.channel.send(embed).then(kanal.send(embed1)).then(m => m.delete({timeout: 20000}));
 }

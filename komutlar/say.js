@@ -1,42 +1,44 @@
 const Discord = require("discord.js");
+const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-  let tag = "ϡ"; // TAGINIZI BURAYA GİRİN
-  const voiceChannels = message.guild.channels.cache.filter(c => c.type === "voice");
-  let count = 0;
+  let tag = ayarlar.tag;
+  const voiceChannels = message.guild.channels.filter(c => c.type === "voice");
+  let sesli = 0;
   for (const [id, voiceChannel] of voiceChannels)
-    count += voiceChannel.members.size;
+    sesli += voiceChannel.members.size;
 
-  const lrowsembed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .addField("Sunucudaki üye sayısı", message.guild.memberCount)
-    .addField(
-      "Çevrimiçi üye sayısı",
-      message.guild.members.cache.filter(
-        m => !m.user.bot && m.user.presence.status !== "offline"
-      ).size
+  const embedsay = new Discord.MessageEmbed()
+    .setTitle(`\`• ${message.guild.name} Sunucu İstatistikleri \` `)
+    .setDescription(
+      ` 
+         <:go_right:773263827559120946> • **__Sunucudaki üye sayısı__** \`${
+           message.guild.memberCount
+         }\`
+         <:go_right:773263827559120946> • **__Çevrimiçi üye sayısı__** \`${
+           message.guild.members.filter(
+             m => !m.user.bot && m.user.presence.status !== "offline"
+           ).size
+         }\`
+         <:go_right:773263827559120946> • **__Seslideki üye sayısı__** \`${sesli}\`
+         <:go_right:773263827559120946> • **__Tagdaki üye sayısı__** \`${
+           message.guild.members.filter(tag => tag.user.username.includes(tag))
+             .size
+         }\``
     )
-    .addField("Seslideki üye sayısı", count)
-    .addField(
-      "Tagdaki üye sayısı",
-      message.guild.members.cache.filter(m => m.user.username.includes(tag)).size
-    ) // TAG KULLANMIYORSANIZ BU SATIRI SİLEBİLİRSİNİZ
-    .setFooter(
-      `${message.author.tag} tarafından istendi`,
-      message.author.avatarURL()
+    .setImage(
+      `https://i.pinimg.com/originals/af/80/39/af8039261a387be71514bb4c2e5e54b5.gif`
     );
-  message.channel.send(lrowsembed);
+  message.channel.send(embedsay);
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["info"],
+  aliases: ["total"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "say",
-  description: "Say",
-  usage: "say"
+  name: "say"
 };

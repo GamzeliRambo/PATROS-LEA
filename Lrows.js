@@ -253,60 +253,7 @@ let lrowstag = 'ω';
 }); 
 
 
-// BOT MESAJ SİLİCİ
-client.on("message",message => {
-  if(!message.author.bot) return;
-  db.get(`lrowssohbet_${message.channel.id}`).then(lrowsdurum => {
-    if(!lrowsdurum || lrowsdurum === 'pasif') return;
-    else {
-      message.delete({timeout: 6000}) // 6000 = 6 Saniye Eder Buna Göre Editleyebilirsiniz.
-    }
-})}) 
-
-
-
-
 //AFK KOMUT
-
-const ms = require("parse-ms");
-const { DiscordAPIError } = require("discord.js");
-
-client.on("message", async message => {
-  if (message.author.bot) return;
-  if (!message.guild) return;
-  if (message.content.includes(`afk`)) return;
-
-  if (await db.fetch(`afk_${message.author.id}`)) {
-    db.delete(`lrowsafk_${message.author.id}`);
-    db.delete(`lrowsafk_süre_${message.author.id}`);
-
-    const lrowsembed = new Discord.MessageEmbed()
-
-      .setColor("GREEN")
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setDescription(`Afk Modundan Çıkış Yaptın`);
-
-    message.channel.send(lrowsembed);
-  }
-
-  var lrowskullanıcı = message.mentions.users.first();
-  if (!lrowskullanıcı) return;
-  var lrowssebep = await db.fetch(`afk_${lrowskullanıcı.id}`);
-
-  if (lrowssebep) {
-    let lrowssüre = await db.fetch(`lrowsafk_süre_${lrowskullanıcı.id}`);
-    let timeObj = ms(Date.now() - lrowssüre);
-
-    const lrowsafk = new Discord.MessageEmbed()
-
-      .setColor("RED")//lrowsxrd
-      .setDescription(
-        `**BU KULLANICI AFK**\n\n**Afk Olan Kullanıcı :** \`${lrowskullanıcı.tag}\`\n**Afk Süresi :** \`${timeObj.hours}saat\` \`${timeObj.minutes}dakika\` \`${timeObj.seconds}saniye\`\n**Sebep :** \`${lrowssebep}\``
-      );
-
-    message.channel.send(lrowsafk);
-  }
-});
 
 
 // Botu Sesliye Sokma Komutudur.
