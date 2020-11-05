@@ -1,37 +1,52 @@
 const Discord = require('discord.js');
-const db = require("quick.db")
-exports.run = async (client, message, args) => {
- if (!message.member.roles.cache.has("KAYIT YETKİLİSİ ROL İD") && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
-  let kullanıcı = message.mentions.users.first()
-  if (!kullanıcı) return message.channel.send(new Discord.MessageEmbed().addField("Hatalı Kullanım",`Lütfen Bir Kullanıcı Etiketleyiniz`).setColor("RANDOM"));
-  let user = message.mentions.users.first();
-  let rol = message.mentions.roles.first()
-  let member = message.guild.member(kullanıcı)
-   let isim = args[1];
-      if(!isim) return message.channel.send(new Discord.MessageEmbed().addField("Hatalı Kullanım",`Lütfen Bir İsim Yazınız`).setColor("RANDOM")).then(m => m.delete({timeout: 5000}));
-   let yas = args[2];
-      if(!yas) return message.channel.send(new Discord.MessageEmbed().addField("Hatalı Kullanım",`Lütfen Bir Yaş Yazınız`).setColor("RANDOM")).then(m => m.delete({timeout: 5000}));
-await member.setNickname(`${isim} | ${yas}`)
-  member.roles.add("KIZ ROL İD"); 
-  member.roles.remove("KAYITSIZ ROL İD");
-     const kanal = message.guild.channels.cache.find(c => c.id == "KAYIT LOG/ SOHBET")
-    const embed1 = new Discord.MessageEmbed() 
-    .setDescription(`<@!${member.id}> Sunucumuza Hoşgeldin Seninle Beraber \`${member.guild.memberCount}\` Kişi Olduk \n <#KURALLAR> Kanalından Kuralları Okumayı Unutma`)
-    .setColor("RANDOM")
-  let embed = new Discord.MessageEmbed() 
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField(`Kayıt İşlemi Başarılı`, `<@!${member.id}> **Adlı Kullanıcıya <@&ROL> Rolünü Verdim ve İsmini** \n\`• ${isim} | ${yas}\` **Olarak Düzenledim**`) 
-  .setFooter(`Komutu Kullanan Yetkili : ${message.author.username}` ,message.author.avatarURL({dynamic: true }))
-  return message.channel.send(embed).then(kanal.send(embed1)).then(m => m.delete({timeout: 20000}));
-}
-exports.conf = {
-  enabled: true,
-  guildOnly: true,
-  aliases: ["kız" , "k"],
-  permLevel: 0
-}
-exports.help = {
-  name: 'Erkek',
+const db = require('quick.db');
 
+exports.run = async(client, message, args) => {
+   if(!message.member.roles.cache.has('773266328785387570')) return message.channel.send('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin : `rôl adı`')
+   let member = message.mentions.users.first() || client.users.cache.get(args.join(' '))
+   if(!member) {
+       return message.channel.send('Bir kişi etiketlemelisin')
+   }
+   let kız = message.guild.roles.cache.find(r => r.id === '773266337094434816')
+   let kayıtsız = message.guild.roles.cache.find(r => r.id === '773266340387356693')
+
+   if(!kız) {
+       return message.channel.send('Kız rolü ayarlanmamış veya rol aranırken bir hata oluştu logu kontrol et')
+   }
+   if(!kayıtsız) {
+       return message.channel.send('kayıtsız rolü ayarlanmamış veya rol aranırken bir hata oluştu logu kontrol et')
+   }
+   let kayıt = message.guild.member(member)
+   let isim = args[1]
+   let yas = args[2]
+
+   if(!isim) return message.channel.send('İsim belirtmelisin')
+   if(isNaN(yas)) return message.channel.send('Yaş belirtmelisin')
+
+   kayıt.setNickname(`${isim} • ${yas}`)
+   kayıt.roles.add(kız)
+   kayıt.roles.remove(kayıtsız)
+   let embed = new Discord.MessageEmbed()
+   .setColor('Pink')
+    .setThumbnail(
+      `https://cdn.discordapp.com/attachments/647020372964802583/701525793167245386/Screenshot_1.png`)
+   .setTitle('Kayıt Tamamlandı')
+   .addField('Kayıt edilen kullanıcı',member)
+   .addField('Adı :', isim)
+   .addField('Yaşı :', yas)
+   .addField('Kayıt eden yetkili', message.author)
+   client.channels.cache.get('773266406208307210').send(embed)///LOG KANAL İD YAZMALISIN
 }
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['kız','k','kadın','bayan'],
+    permLevel: 0
+};
+
+exports.help = {
+    name: 'kız',
+    description: 'kız ',
+    usage: 'kız'
+};
