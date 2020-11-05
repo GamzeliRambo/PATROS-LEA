@@ -315,3 +315,102 @@ client.on("message", async msg => {
 });
 ////////////////////////////////////////////
 
+client.on("message", async msg => {
+   if(!msg.guild) return
+  let saas = await db.fetch(`saas_${msg.guild.id}`);
+  if (saas == 'kapalii') return;
+  if (saas == 'aciki') {
+  if (msg.content.toLowerCase() === 'selam') {
+    msg.channel.send(`<:tac:773903928596627456> Aleyküm Selam Hoşgeldin. ${msg.author} <:hg:773917400390828032>`);
+  }
+  }
+});
+/////////////////////////////////////////////////
+client.on("message", async message => {
+  
+  const lus = await db.fetch(`reklam_${message.guild.id}`)
+  if (lus) {
+    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
+    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
+      try {
+        if (!message.member.permissions.has('KICK_MEMBERS')) {
+          message.delete();
+          
+          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
+          
+        }
+      } catch(err) {
+        console.log(err);
+    }
+  }
+}
+if (!lus) return;
+});
+client.on("messageUpdate", async message => {
+  
+  const lus = await db.fetch(`reklam_${message.guild.id}`)
+  if (lus) {
+    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
+    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
+      try {
+        if (!message.member.permissions.has('KICK_MEMBERS')) {
+          message.delete();
+          
+          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
+          
+        }
+      } catch(err) {
+        console.log(err);
+    }
+  }
+}
+if (!lus) return;
+});
+//kick
+client.on("message", async message => {
+  
+  const lus = await db.fetch(`reklamkick_${message.guild.id}`)
+    let sayı = await db.fetch(`sayı_${message.author.id}`);
+let a = message.author
+  if (lus) {
+    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
+    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
+      try {
+        if (!message.member.permissions.has('KICK_MEMBERS')) {
+          message.delete();
+          db.add(`sayı_${message.author.id}`, 1)
+          if (sayı == null) {
+            const sa = new Discord.MessageEmbed()
+            .setDescription(`Hey! <@${message.author.id}> Bu İlk Uyarın Lütfen Tekrarlama!`)
+            message.channel.send(sa)
+            message.delete()
+            a.send(`Bu İlk Uyarın Lütfen Tekrarlama`)
+            return 
+          }
+         if (sayı === 1) {
+               const sa = new Discord.MessageEmbed()
+            .setDescription(`Hey! <@${message.author.id}> Bu İkinci Uyarın Lütfen Tekrarlama!`)
+            message.channel.send(sa)
+            message.delete()
+            a.send(`Bu İkinci Uyarın Lütfen Tekrarlama`)
+            return 
+         }
+            if (sayı > 2) {
+               const sa = new Discord.MessageEmbed()
+            .setDescription(`Hey! <@${message.author.id}> Reklamdan Dolayı Kickledim!`)
+            message.channel.send(sa)
+            message.delete()
+            a.send(`${message.guild.name} Sunucusundan Reklam Yaptığın İçin Kicklendin!`)
+                db.delete(`sayı_${message.author.id}`)
+message.guild.member(a).kick();     
+              return
+            }
+          
+        }
+      } catch(err) {
+        console.log(err);
+    }
+  }
+}
+if (!lus) return;
+});
