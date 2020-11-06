@@ -284,7 +284,7 @@ client.on("roleCreate", async role => {
   role.delete()
 }) 
 
-///////////////////////////
+////////////////////////////////////////Kanal KORUMA////////////////////////////////////////////////////////////////////////
 
 client.on("channelDelete", async function(channel) {
     let rol = await db.fetch(`kanalk_${channel.guild.id}`);
@@ -325,28 +325,8 @@ client.on("message", async msg => {
   }
   }
 });
-/////////////////////////////////////////////////
-client.on("message", async message => {
-  
-  const lus = await db.fetch(`reklam_${message.guild.id}`)
-  if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
-    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
-      try {
-        if (!message.member.permissions.has('KICK_MEMBERS')) {
-          message.delete();
-          
-          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum')
-          
-        }
-      } catch(err) {
-        console.log(err);
-    }
-  }
-}
-if (!lus) return;
-});
-////////////////////////////////////////////////
+
+////////////////////////////////////////////////Küfür Koruma/////////////////////////////////////////////////////////
 client.on("message", async msg => {
   
   
@@ -370,11 +350,11 @@ client.on("message", async msg => {
           if (!a) return;
           })
 
-////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////Reklam Koruma/////////////////////////////////////////////////////////////
 client.on("message", async message => {
   
-  const lus = await db.fetch(`reklamengel_${message.guild.id}`)
+  const lus = await db.fetch(`reklam_${message.guild.id}`)
   if (lus) {
     const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
     if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
@@ -382,7 +362,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('KICK_MEMBERS')) {
           message.delete();
           
-          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
+          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum')
           
         }
       } catch(err) {
@@ -392,27 +372,7 @@ client.on("message", async message => {
 }
 if (!lus) return;
 });
-client.on("messageUpdate", async message => {
-  
-  const lus = await db.fetch(`reklamengel_${message.guild.id}`)
-  if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
-    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
-      try {
-        if (!message.member.permissions.has('KICK_MEMBERS')) {
-          message.delete();
-          
-          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
-          
-        }
-      } catch(err) {
-        console.log(err);
-    }
-  }
-}
-if (!lus) return;
-});
-/////////////////////////////
+//-------------------------------------------- MOD Sistemi -----------------------------------------//
 client.on("messageDelete", async message => {
   let a = await db.fetch(`modlog_${message.guild.id}`)
   if (a) {
