@@ -5,13 +5,29 @@ const ayarlar = require('../ayarlar.json');
 
 var prefix = ayarlar.prefix;
 
+
 module.exports = client => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Aktif, Komutlar yüklendi!`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: ${client.user.username} İsmi İle Giriş Yapıldı!`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Vexo :)`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Vexo`);
-  client.user.setStatus("idle");
-  client.user.setActivity(`Vexo.`); 
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Oyun ismi ayarlandı!`);
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Şu an ` + client.channels.cache.size + ` adet kanala, ` + client.guilds.cache.size + ` adet sunucuya ve ` + client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`);
-};  
+  console.log(`${client.user.username}: Şu an ` + client.channels.cache.size + ` adet kanala, ` + client.guilds.cache.size + ` adet sunucuya ve ` + client.users.cache.size + ` kullanıcıya hizmet veriliyor!`);  
+  //---------AKTİFLİK DURUMU İÇİN---------
+   client.user.setStatus("dnd");
+  //idle = BOŞTA
+  //online = ÇEVRİMİÇİ
+  //dnd = RAHATSIZ ETMEYİN
+  //---------AKTİFLİK DURUMU İÇİN---------
+  
+  
+  //---------DURUM İÇİN---------
+  client.user.setActivity(`Deneme`,{ type: 'LISTENING' });
+  //LISTENING = DİNLİYOR
+  //WATCHING = İZLİYOR
+  //PLAYING = OYNUYOR 
+  //---------DURUM İÇİN---------
+  
+  
+  //---------YAYIN İÇİN---------
+  client.user.setActivity("Xountex", {
+  type: "STREAMING",
+  url: "https://www.twitch.tv/xountex"
+  });
+  //---------YAYIN İÇİN---------
+};

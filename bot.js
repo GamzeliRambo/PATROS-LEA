@@ -114,16 +114,6 @@ client.login(ayarlar.token);
 
 //OYNUYOR
 
-client.on('ready', () => {
-    client.user.setPresence({
-        game: {
-            name: `Vexo `,
-            type: 'WATCHING',
-            // PLAYING:Oynuyor//WATCHING:İzliyor// LISTENING:Dinliyor//STREAMING:Yayında
-        },
-              status: 'online'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
-    })
-})
 //------------------------------------------------KOMUTLAR-----------------------------------------\\
 //OTOTAG 
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
