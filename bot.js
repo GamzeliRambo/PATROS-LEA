@@ -124,7 +124,7 @@ client.on('ready', () => {
               status: 'online'// online:Çevrimiçi// dnd :Rahatsız Etmeyin // idle:Boşta
     })
 })
-//-------------KOMUTLAR-------\\
+//------------------------------------------------KOMUTLAR-----------------------------------------\\
 //OTOTAG 
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "Ꮙ"//tagı buraya girmeniz yeterli olacaktır
@@ -156,11 +156,8 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   }
 }
           ); 
-//OTO ROL
 
-
-
-// OTO MESAJ
+//-------------------------------------------- OTO MESAJ -----------------------------------------////
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === '!tag') {
     lrowstagmesaj.channel.send('<:go_right:773919887475212358> Ꮙ');//TAG
@@ -198,6 +195,7 @@ client.on("ready", () => {
 });
 // HOŞ GELDİN
 ///HG MESAJI
+//-------------------------------------------- HG MESAJI-----------------------------------------////
 client.on('guildMemberAdd', (member, msg) => {
   const moment = require('moment')
 	let günler = {
@@ -241,7 +239,7 @@ client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
 
 
 // DM HOŞGELDİN
-
+//-------------------------------------------- DM MESAJI-----------------------------------------////
 client.on(`guildMemberAdd`, async lrowsmember => {
 let lrowstag = 'Ꮙ';
   const e = new Discord.MessageEmbed()
@@ -265,7 +263,7 @@ client.on('ready', ()=>{
 client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
 })
 //-------------KOMUTLAR-------\\
-////////////////////////////////////////ROL KORUMA/////////////////////////////////////////////////////////////////////////
+//-------------------------------------------- ROL Koruma Sistemi -----------------------------------------//
 client.on("roleDelete", async role => {
          const entry = await role.guild.fetchAuditLogs({ type: "ROLE_DELETE" }).then(audit => audit.entries.first());
     if (entry.executor.id == client.user.id) return;
@@ -284,7 +282,7 @@ client.on("roleCreate", async role => {
   role.delete()
 }) 
 
-////////////////////////////////////////Kanal KORUMA////////////////////////////////////////////////////////////////////////
+//-------------------------------------------- Kanal Koruma Sistemi -----------------------------------------//
 
 client.on("channelDelete", async function(channel) {
     let rol = await db.fetch(`kanalk_${channel.guild.id}`);
@@ -326,7 +324,7 @@ client.on("message", async msg => {
   }
 });
 
-////////////////////////////////////////////////Küfür Koruma/////////////////////////////////////////////////////////
+//-------------------------------------------- Küfür Sistemi -----------------------------------------//
 client.on("message", async msg => {
   
   
@@ -351,7 +349,7 @@ client.on("message", async msg => {
           })
 
 
-/////////////////////////////////////////////////Reklam Koruma/////////////////////////////////////////////////////////////
+//-------------------------------------------- Reklam Sistemi -----------------------------------------//
 client.on("message", async message => {
   
   const lus = await db.fetch(`reklam_${message.guild.id}`)
