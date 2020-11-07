@@ -221,7 +221,7 @@ let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
 	//let kuruluş = user.createdAt.toDateString().replace("Sun","Pazar").replace("Mon","Pazartesi").replace("Tue","Salı").replace("Wed","Çarşamba").replace("Thu","Perşembe").replace("Fri","Cuma").replace("Sat","Cumartesi").replace("Jan","Ocak").replace("Feb","Şubat").replace("Mar","Mart").replace("Apr","Nisan").replace("May","Mayıs").replace("June","Haziran").replace("July","Temmuz").replace("Aug","Ağustos").replace("Sep","Eylül").replace("Oct","Ekim").replace("Nov","Kasım").replace("Dec","Aralık")   
 	let oskobs = new Discord.MessageEmbed()
 	.setColor("BLACK")
-    .setDescription(` <:go_right:773919887475212358>** <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \` ${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773903928596627456>**Kaydının yapılması için sesli odaya gelip ses vermen gerekli. **\n <:darwin:773903933251911720>** <@&773266328785387570> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:lolo:773903929611255839>**Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
+    .setDescription(` <:go_right:773919887475212358>** • <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \` ${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773903928596627456> • **Kaydının yapılması için sesli odaya gelip ses vermen gerekli. • { Ꮙ } Tagımızı alarak ekibimize katılabilirsin. **\n <:darwin:773903933251911720>** • <@&773266328785387570> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:lolo:773903929611255839>**Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
 .setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif")  
 client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
 })
