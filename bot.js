@@ -287,17 +287,6 @@ client.on("roleCreate", async role => {
     if (entry.executor.id == client.user.id) return;
   role.delete()
 }) 
-///////////////////////////////////////ready
-client.on("ready", () => {
-  console.log(`[Görkem Rewind] Bütün komutlar başarıyla yüklendi!`);
-  client.user.setStatus("idle");
-    client.user.setGame(`${prefix}yardım | ${client.guilds.size} Sunucu | ${client.users.size} Users!`);   //(botun oynuyor kısmı ramazan)
-  console.log(`[Görkem Rewind] Bot AKTİF! Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.user + ` kullanıcıya hizmet veriliyor!`);
-})
-////////////////////////////////////////ready
-
-
-
 
 //-------------------------------------------- Kanal Koruma Sistemi -----------------------------------------//
 
