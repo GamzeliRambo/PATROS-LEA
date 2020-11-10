@@ -242,7 +242,20 @@ let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
 client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
 })
 
+client.on("guildMemberAdd", async member => {
+      let gkisi = client.users.cache.get(member.id);
+      const ktarih = new Date().getTime() - gkisi.createdAt.getTime();   
 
+    if (ktarih < 2592000001) {
+    member.roles.add("773266358501638144")//Şüpheli Hesap
+    
+    }else{
+    
+    member.roles.add("773266340387356693")//Güvenilir Hesağ
+    
+      }
+});
+  
 
 // DM HOŞGELDİN
 //-------------------------------------------- DM MESAJI-----------------------------------------////
