@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 exports.run = async (client, message, args) => {
   if (
-    !message.member.roles.cache.has("773266318161608745")
+    !message.member.roles.cache.has("770748648186314792")
   )
     return message.channel.send(
       new Discord.MessageEmbed()
@@ -26,12 +26,12 @@ exports.run = async (client, message, args) => {
     return message.channel
       .send("Lütfen Bir Sebep Yazınız.")
       .then(m => m.delete(5000));
-  message.react("<:tik:773279749593890826>");//emoji id girmeniz yeterli olacaktır
+  message.react("<:yazik:773988643517235270>");//emoji id girmeniz yeterli olacaktır
   message.guild.members.cache.get(lrowsmember.id).roles.cache.forEach(r => {
     message.guild.members.cache.get(lrowsmember.id).roles.remove(r);
   });
-  lrowsmember.roles.add("773266358501638144");//jail rol id
-  const lrowskanal = message.guild.channels.cache.find(c => c.id == "773266446977466439");//JAIL-LOG KANAL ID
+  lrowsmember.roles.add("773988068788273162");//jail rol id
+  const lrowskanal = message.guild.channels.cache.find(c => c.id == "773992636335521793");//JAIL-LOG KANAL ID
   const lrowsembed1 = new Discord.MessageEmbed()
     .setDescription(
       `${lrowskullanıcı} Adlı Üye **${lrowsreason}** Yüzünden Jaile Atıldı!`

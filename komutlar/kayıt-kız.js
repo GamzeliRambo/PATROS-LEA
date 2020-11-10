@@ -3,11 +3,11 @@ const db = require('quick.db')
 
 exports.run = async (client, message, args) => {
 
- if(!['773266328785387570'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
+ if(!['770775432421179475'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-let tag = "Ꮙ"
-const kayıtlı = message.guild.roles.cache.find(r => r.id === '773266337094434816')
-const kayıtsız = message.guild.roles.cache.find(r => r.id === '773266340387356693')
+let tag = "≽"
+const kayıtlı = message.guild.roles.cache.find(r => r.id === '770672170845208596')
+const kayıtsız = message.guild.roles.cache.find(r => r.id === '770675814991659078')
 
 if(!kayıtlı) return message.reply('Kayıtlı Rolü Ayarlanmamış.') 
 if(!kayıtsız) return message.reply('Kayıtsız Rolü Ayarlanmamış.') 
@@ -30,15 +30,15 @@ let kadın = db.get(`kadinUye.${message.author.id}`);
 let kayıtlar = db.fetch(`kayıtSayi.${message.author.id}`); 
   
 const embed = new Discord.MessageEmbed()
-.setTitle("<:tac:773903928596627456>  Kayıt işlemi başarılı <:tac:773903928596627456> ")
+.setTitle("<:tac:773973008884432958>  Kayıt işlemi başarılı <:tac:773973008884432958> ")
     .addField(`Kayıt Eden:`, `<@${message.author.id}> Tarafından Kayıt Edildi`) 
     .addField(`Kayıt Edilen:`, `<@${stg.user.id}> Kayıt Oldu`)
     .addField(`Verilen Rol:`, `<@&${kayıtlı.id}> Rolleri Verildi`) 
     .addField(`Alınan Rol:`, `<@&${kayıtsız.id}> Rolleri Alındı`)
     .addField(`Yeni İsmin:`, `\`${tag} ${isim} | ${yas}\` Olarak Güncellendi`) 
     .addField(`Yetkili Toplam:`, `\`${kayıtlar}\` Kayıtlara Sahip.`)
-.setThumbnail("https://cdn.discordapp.com/avatars/709782973507174420/a_d9201be2fe601cf56a91bc94423004c3.gif")
-.setFooter(`Ꮙ Duayen øf Vampires`)
+.setThumbnail("https://media.tenor.com/images/5a8496cf0faf284d514a8cedc3f7332d/tenor.gif")
+.setFooter(`≽ PATROSİLEA`)
 .setColor('GREEN')
 client.channels.cache.get('773266406208307210').send(embed)
   

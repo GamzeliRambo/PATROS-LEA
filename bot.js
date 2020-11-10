@@ -135,13 +135,13 @@ client.login(ayarlar.token);
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "Ꮙ"//tagı buraya girmeniz yeterli olacaktır
   let lrowssunucu = client.guilds.cache.find(e => e.id === `773264520340045914`)
-  let rol = lrowssunucu.roles.cache.find(a => a.id === `773266333147463731`)
+  let rol = lrowssunucu.roles.cache.find(a => a.id === `770017461751250965`)
   let lrowsuye = lrowssunucu.members.cache.get(lrowsnewUser.id)
   if (lrowsnewUser.username.includes(lrowstag) && !lrowsoldUser.username.includes(lrowstag)) {
-    lrowsuye.roles.add('773266333147463731')
+    lrowsuye.roles.add('770017461751250965')
     let lrowsembed = new Discord.MessageEmbed()
     .setColor(`#24e7bf`)
-    .setDescription(` <@${lrowsnewUser.id}> **adlı üye** "Ꮙ" **tagımızı aldığı için** <@&773266333147463731> **rolü verildi!**`)
+    .setDescription(` <@${lrowsnewUser.id}> **adlı üye** "≽" **tagımızı aldığı için** <@&775760157917184040> **rolü verildi!**`)
     client.channels.cache.get(`773266413112262706`).send (lrowsembed)
 
   }
@@ -150,13 +150,13 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
   var lrowstag = "Ꮙ"//tagı braya girmeniz yeterli olacaktır
   let lrowssunucu = client.guilds.cache.find(e => e.id === `773264520340045914`)
-  let lrowsrol = lrowssunucu.roles.cache.find(a => a.id === `773266333147463731`)
+  let lrowsrol = lrowssunucu.roles.cache.find(a => a.id === `770017461751250965`)
   let lrowsuye = lrowssunucu.members.cache.get(lrowsoldUser.id)
   if (lrowsoldUser.username.includes(lrowstag) && !lrowsnewUser.username.includes(lrowstag)) {
-    lrowsuye.roles.remove('773266333147463731')
+    lrowsuye.roles.remove('770017461751250965')
     let lrowsembedd = new Discord.MessageEmbed()
     .setColor(`#ff0000`)
-    .setDescription(` <@${lrowsoldUser.id}> **adlı üye** "Ꮙ" **tagımızı çıkardığı için** <@&773266333147463731> **rolü alındı!**`)
+    .setDescription(` <@${lrowsoldUser.id}> **adlı üye** "≽" **tagımızı çıkardığı için** <@&770017461751250965> **rolü alındı!**`)
     client.channels.cache.get(`773266413112262706`).send (lrowsembedd)
 
   }
@@ -166,25 +166,25 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 //-------------------------------------------- OTO MESAJ -----------------------------------------////
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === '!tag') {
-    lrowstagmesaj.channel.send('<:go_right:773919887475212358> Ꮙ');//TAG
+    lrowstagmesaj.channel.send('<:go_right:773919887475212358> ≽');//TAG
   }
 });
 
 client.on('message', lrowstagmesaj => {
   if (lrowstagmesaj.content.toLowerCase() === 'tag') {//TAG
-    lrowstagmesaj.channel.send('<:go_right:773919887475212358> Ꮙ');
+    lrowstagmesaj.channel.send('<:go_right:773919887475212358> ≽');
   }
 });
 
 client.on('message', lrowsserverlinkmesaj => {
   if (lrowsserverlinkmesaj.content.toLowerCase() === '!link') {
-    lrowsserverlinkmesaj.channel.send('<:go_right:773919887475212358>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/B3eVAjDgfT ');
+    lrowsserverlinkmesaj.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/yC9yvx2fMY ');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === '!davet') {
-    msg.channel.send('<:go_right:773919887475212358>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/B3eVAjDgfT');
+    msg.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/yC9yvx2fMY');
   }
 });
 
@@ -204,8 +204,6 @@ client.on("ready", () => {
 //-------------------------------------------- HG MESAJI-----------------------------------------////
 client.on('guildMemberAdd', (member, msg) => {
   const moment = require('moment')
-    let Güvenli = `${member} adlı kullanıcının hesabı güvenli!`;
-  let Şüpheli = `${member} adlı kullanıcının hesabı güvenli değil!`;
 	let günler = {
       "0": "Pazar",
       "1": "Pazartesi",
@@ -229,7 +227,6 @@ client.on('guildMemberAdd', (member, msg) => {
 			"11": "Kasım",
 			"12": "Aralık"
     }
-    
   let endAt = member.user.createdAt
       let gün = moment(new Date(endAt).toISOString()).format('DD')
       let ay = moment(new Date(endAt).toISOString()).format('MM').replace("01", "Ocak").replace("02","Şubat").replace("03","Mart").replace("04", "Nisan").replace("05", "Mayıs").replace("06", "Haziran").replace("07", "Temmuz").replace("08", "Ağustos").replace("09", "Eylül").replace("10","Ekim").replace("11","Kasım").replace("12","Aralık")
@@ -240,20 +237,20 @@ let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
 	//let kuruluş = user.createdAt.toDateString().replace("Sun","Pazar").replace("Mon","Pazartesi").replace("Tue","Salı").replace("Wed","Çarşamba").replace("Thu","Perşembe").replace("Fri","Cuma").replace("Sat","Cumartesi").replace("Jan","Ocak").replace("Feb","Şubat").replace("Mar","Mart").replace("Apr","Nisan").replace("May","Mayıs").replace("June","Haziran").replace("July","Temmuz").replace("Aug","Ağustos").replace("Sep","Eylül").replace("Oct","Ekim").replace("Nov","Kasım").replace("Dec","Aralık")   
 	let oskobs = new Discord.MessageEmbed()
 	.setColor("BLACK")
-    .setDescription(` <:go_right:773919887475212358>** • <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \` ${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773903928596627456> • **Kaydının yapılması için sesli odaya gelip ses vermen gerekli. • { Ꮙ } Tagımızı alarak ekibimize katılabilirsin. **\n <:darwin:773903933251911720>** • <@&773266328785387570> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:lolo:773903929611255839> • **Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
-.setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif") 
-   var kontrol;
-client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
+    .setDescription(` <:okmavi:773974158169735239>** <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \` ${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773973008884432958>**Kaydının yapılması için sesli odaya gelip ses vermen gerekli. **\n <:maske:773980240472702997>** <@&770775432421179475> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:tatlis:773980238836793436>**Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
+.setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif")  
+client.channels.cache.get("770772197647843405").send(oskobs)//kanalid
 })
+
 
 
 // DM HOŞGELDİN
 //-------------------------------------------- DM MESAJI-----------------------------------------////
 client.on(`guildMemberAdd`, async lrowsmember => {
-let lrowstag = 'Ꮙ';
+let lrowstag = '≽';
   const e = new Discord.MessageEmbed()
     .setColor(`RANDOM`)
-    .setImage(`https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
+    .setImage(`https://cdn.discordapp.com/attachments/647020372964802583/701525793167245386/Screenshot_1.png`)
     .addField(
       `Sunucumuza hoş geldin!`,
       `Tagımızı Alarak Bize Destek Olabilirsin.`
@@ -269,10 +266,11 @@ let lrowstag = 'Ꮙ';
 // Botu Sesliye Sokma Komutudur.
 
 client.on('ready', ()=>{
-client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
+client.channels.cache.get('772447679580995594').join()//SESLI KANAL IDSINI GIRIN
 })
 //-------------KOMUTLAR-------\\
 //-------------------------------------------- ROL Koruma Sistemi -----------------------------------------//
+/*
 client.on("roleDelete", async role => {
          const entry = await role.guild.fetchAuditLogs({ type: "ROLE_DELETE" }).then(audit => audit.entries.first());
     if (entry.executor.id == client.user.id) return;
@@ -290,7 +288,7 @@ client.on("roleCreate", async role => {
     if (entry.executor.id == client.user.id) return;
   role.delete()
 })
-
+*/
 //-------------------------------------------- Kanal Koruma Sistemi -----------------------------------------//
 
 client.on("channelDelete", async function(channel) {
@@ -316,7 +314,7 @@ client.on("message", async msg => {
   if (saas == 'kapalii') return;
   if (saas == 'aciki') {
   if (msg.content.toLowerCase() === 'sa') {
-    msg.channel.send(`<:tac:773903928596627456> Aleyküm Selam Hoşgeldin. ${msg.author} <:hg:773917400390828032>`);
+    msg.channel.send(`<:tac:773973008884432958> Aleyküm Selam Hoşgeldin. ${msg.author} <:hg:773976480639877150>`);
   }
   }
 });
@@ -328,7 +326,7 @@ client.on("message", async msg => {
   if (saas == 'kapalii') return;
   if (saas == 'aciki') {
   if (msg.content.toLowerCase() === 'selam') {
-    msg.channel.send(`<:tac:773903928596627456> Aleyküm Selam Hoşgeldin. ${msg.author} <:hg:773917400390828032>`);
+    msg.channel.send(`<:tac:773973008884432958> Aleyküm Selam Hoşgeldin. ${msg.author} <:hg:773976480639877150>`);
   }
   }
 });
@@ -432,12 +430,3 @@ client.on("guildMemberAdd", async member => {
 });
 
 //-------------------- Otorol Sistemi --------------------//
-
-client.on("guildMemberAdd", member => {
-
-if(member.user.username.includes("ᛟ")){
-member.addRole("773266358501638144")
-member.removeRole("773266340387356693")
-member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Şüpheli Kısmına Atıldınız.__**")
-}
-})

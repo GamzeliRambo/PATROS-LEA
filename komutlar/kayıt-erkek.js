@@ -3,11 +3,11 @@ const db = require('quick.db')
 
 exports.run = async (client, message, args) => {
 
- if(!['773266328785387570'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
+ if(!['770775432421179475'].some(role => message.member.roles.cache.get(role)) && !message.member.hasPermission('ADMINISTRATOR')) return message.reply(`Bu Komut İçin Yetkiniz Bulunmamaktadır.`) 
   
-let tag = "Ꮙ"
-const kayıtlı = message.guild.roles.cache.find(r => r.id === '773266337396162572')
-const kayıtsız = message.guild.roles.cache.find(r => r.id === '773266340387356693')
+let tag = "≽"
+const kayıtlı = message.guild.roles.cache.find(r => r.id === '770672559670427718')
+const kayıtsız = message.guild.roles.cache.find(r => r.id === '770675814991659078')
 
 if(!kayıtlı) return message.reply('Kayıtlı Rolü Ayarlanmamış.') 
 if(!kayıtsız) return message.reply('Kayıtsız Rolü Ayarlanmamış.') 
@@ -38,7 +38,7 @@ const embed = new Discord.MessageEmbed()
     .addField(`Yeni İsmin:`, `\`${tag} ${isim} | ${yas}\` Olarak Güncellendi`) 
     .addField(`Yetkili Toplam:`, `\`${kayıtlar}\` Kayıtlara Sahip.`)
 .setThumbnail("https://media.tenor.com/images/5a8496cf0faf284d514a8cedc3f7332d/tenor.gif")
-.setFooter(`Ꮙ Duayen øf Vampires`)
+.setFooter(`≽ PATROSİLEA`)
 .setColor('GREEN')
 client.channels.cache.get('773266406208307210').send(embed)
   

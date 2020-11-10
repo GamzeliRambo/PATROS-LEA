@@ -6,19 +6,21 @@ exports.run = function(client, message) {
 
 const yardım = new Discord.MessageEmbed()
 .setColor('GREEN')
- .setTitle(`\`• ${message.guild.name} Sunucu Yardım Menüsü \` `)
+ .setTitle(`\`• PATROSİLEA Sunucu Yardım Menüsü \` `)
 .setDescription(`
-<:go_right:773919887475212358> **=**  \`!erkek\`:  **Erkek Rol verir (teyit yetkili özel)**
-<:go_right:773919887475212358> **=**  \`!kız\`:  **kız Rol verir (teyit yetkili özel)**
-<:go_right:773919887475212358> **=**  \`!ban\`: **Belirttiğiniz Kişiyi Sunucudan Banlarsınız**
-<:go_right:773919887475212358> **=**  \`!unban\`:  **Belirttiğiniz Kişinin Banını Kaldırırsınız**
-<:go_right:773919887475212358> **=**  \`!temizle\`:  **Belirttiğiniz Sayıda Mesajı Siler**
-<:go_right:773919887475212358> **=**  \`!say\`:  **Sunucu üye Durumu**
-<:go_right:773919887475212358> **=**  \`!avatar\`:  **Avatarınızı Atar**
-<:go_right:773919887475212358> **=**  \`!jail\`:  **Jail atar**
-<:go_right:773919887475212358> **=**  \`!unjail\`:  **Jaildan cıkarır**
-<:go_right:773919887475212358> **=**  \`!vipver\`: **Vip Rol verilir**
-<:go_right:773919887475212358> **=**  \`!vipal\`: **Vip Rol alır**
+<:okmavi:773974158169735239> **=**  \`!stat\`:  **Stat Kac Kisi Kayıt Etini Gösterir**
+<:okmavi:773974158169735239> **=**  \`!erkek\`:  **Erkek Rol verir (teyit yetkili özel)**
+<:okmavi:773974158169735239> **=**  \`!kız\`:  **kız Rol verir (teyit yetkili özel)**
+<:okmavi:773974158169735239> **=**  \`!ban\`: **Belirttiğiniz Kişiyi Sunucudan Banlarsınız**
+<:okmavi:773974158169735239> **=**  \`!unban\`:  **Belirttiğiniz Kişinin Banını Kaldırırsınız**
+<:okmavi:773974158169735239> **=**  \`!temizle\`:  **Belirttiğiniz Sayıda Mesajı Siler**
+<:okmavi:773974158169735239> **=**  \`!say\`:  **Sunucu üye Durumu**
+<:okmavi:773974158169735239> **=**  \`!avatar\`:  **Avatarınızı Atar**
+<:okmavi:773974158169735239> **=**  \`!jail\`:  **Jail atar**
+<:okmavi:773974158169735239> **=**  \`!unjail\`:  **Jaildan cıkarır**
+<:okmavi:773974158169735239> **=**  \`!vipver\`: **Vip Rol verilir**
+<:okmavi:773974158169735239> **=**  \`!vipal\`: **Vip Rol alır**
+<:okmavi:773974158169735239> **=**  \`!kullanıcıbilgim \`: **kullanıcı bilgim gösterir**
 
 `)
 .setThumbnail("https://media.tenor.com/images/5a8496cf0faf284d514a8cedc3f7332d/tenor.gif")

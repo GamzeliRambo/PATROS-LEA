@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let tag = "Ꮙ"; // TAGINIZI BURAYA GİRİN
+  let tag = "≽";// TAGINIZI BURAYA GİRİN
   const voiceChannels = message.guild.channels.cache.filter(c => c.type === "voice");
   let count = 0;
   for (const [id, voiceChannel] of voiceChannels)
@@ -9,21 +9,22 @@ exports.run = async (client, message, args) => {
 
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-   .setTitle(`\`${message.guild.name} Sunucu İstatistikleri\` `)
-  .setThumbnail(
-    
-      `https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
-    .addField("**<:tac:773903928596627456> ___Sunucudaki üye sayısı___ <:tac:773903928596627456>**", message.guild.memberCount)
+   .setTitle(`\`PATROSİLEA Sunucu İstatistikleri\` `)
+ .setThumbnail(
+      `https://cdn.discordapp.com/attachments/647020372964802583/701525793167245386/Screenshot_1.png`)
+    .addField("**<:tac:773973008884432958> ___Sunucudaki üye sayısı___ <:tac:773973008884432958>**", message.guild.memberCount)
     .addField(
-      "**<:go_right:773919887475212358> ___Çevrimiçi üye sayısı___**",
+      "**<:go_right:773969596096708658> ___Çevrimiçi üye sayısı___**",
       message.guild.members.cache.filter(
         m => !m.user.bot && m.user.presence.status !== "offline"
       ).size
     )
-    .addField("**<:go_right:773919887475212358> ___Seslideki üye sayısı___**", count)
+    .addField("**<:go_right:773969596096708658> ___Seslideki üye sayısı___**", count)
     .addField(
-      "**<:go_right:773919887475212358> ___Tagdaki üye sayısı___**",
+      "**<:go_right:773969596096708658> ___Tagdaki üye sayısı___**",
       message.guild.members.cache.filter(m => m.user.username.includes(tag)).size
+      
+      
     ) // TAG KULLANMIYORSANIZ BU SATIRI SİLEBİLİRSİNİZ
     .setFooter(
       `${message.author.tag} tarafından istendi`,
