@@ -347,7 +347,7 @@ client.on("message", async msg => {
             if (!msg.member.hasPermission("MANAGE_GUILD")) {
                   msg.delete();
                           
-                    return msg.channel.send(`Kufur Etme !`).then(msg => msg.delete(10000));
+                    return msg.channel.send(`Kufur Etme !`)
             }              
                 } catch(err) {
                   console.log(err);
@@ -366,7 +366,7 @@ client.on("message", msg => {
           try {
             if (!msg.member.hasPermission("BAN_MEMBERS")) {
                   msg.delete();
-                    return msg.reply('**Bu Sunucuda** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem İzin Vermem ? !**').then(msg => msg.delete(3000));
+                    return msg.reply('**Bu Sunucuda** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem İzin Vermem ? !**')
    
  
   msg.delete(3000);                              
