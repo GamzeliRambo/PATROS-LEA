@@ -273,7 +273,7 @@ client.channels.cache.get('773266403750838303').join()//SESLI KANAL IDSINI GIRIN
 })
 //-------------KOMUTLAR-------\\
 //-------------------------------------------- ROL Koruma Sistemi -----------------------------------------//
-/*client.on("roleDelete", async role => {
+client.on("roleDelete", async role => {
          const entry = await role.guild.fetchAuditLogs({ type: "ROLE_DELETE" }).then(audit => audit.entries.first());
     if (entry.executor.id == client.user.id) return;
   role.guild.roles.create({ data: {
@@ -289,7 +289,7 @@ client.on("roleCreate", async role => {
        const entry = await role.guild.fetchAuditLogs({ type: "ROLE_CREATE" }).then(audit => audit.entries.first());
     if (entry.executor.id == client.user.id) return;
   role.delete()
-}) */
+})
 
 //-------------------------------------------- Kanal Koruma Sistemi -----------------------------------------//
 
