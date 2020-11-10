@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
 
   const lrowsembed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-   .setTitle(`\`${message.guild.name}Sunucu İstatistikleri\` `)
+   .setTitle(`\`${message.guild.name} Sunucu İstatistikleri\` `)
   .setThumbnail(
     
       `https://media.giphy.com/media/JD1us8gMWOdlVVJuxh/giphy.gif`)
