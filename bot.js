@@ -355,26 +355,24 @@ client.on("message", async msg => {
 
 
 //-------------------------------------------- Reklam Sistemi -----------------------------------------//
-client.on("message", async message => {
-  
-  const lus = await db.fetch(`reklam_${message.guild.id}`)
-  if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
-    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
-      try {
-        if (!message.member.permissions.has('KICK_MEMBERS')) {
-          message.delete();
-          
-          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum')
-          
+client.on("message", msg => {
+ if(!db.has(`reklam_${msg.guild.id}`)) return;
+        const reklam = [".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", "net", ".rf.gd", ".az", ".party", "discord.gg",];
+        if (reklam.some(word => msg.content.includes(word))) {
+          try {
+            if (!msg.member.hasPermission("BAN_MEMBERS")) {
+                  msg.delete();
+                    return msg.reply('**Bu Sunucudca** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem İzin Vermem ? !**').then(msg => msg.delete(3000));
+   
+ 
+  msg.delete(3000);                              
+ 
+            }              
+          } catch(err) {
+            console.log(err);
+          }
         }
-      } catch(err) {
-        console.log(err);
-    }
-  }
-}
-if (!lus) return;
-});
+    });
 //-------------------------------------------- MOD Sistemi -----------------------------------------//
 client.on("messageDelete", async message => {
   let a = await db.fetch(`modlog_${message.guild.id}`)
@@ -438,4 +436,24 @@ member.addRole("773266358501638144")
 member.removeRole("773266340387356693")
 member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Şüpheli Kısmına Atıldınız.__**")
 }
+})
+
+client.on('guildMemberAdd', async member => {
+  
+  member.addRole('773266358501638144')
+  
+});
+
+client.on('guildMemberAdd', async member => {
+if( new Date().getTime() - member.user.createdAt.getTime() < 10*24*60*60*1000) {
+
+      
+
+  try {
+    member.guild.members.get(member.id).addRole('773266358501638144');
+    
+  } catch(err) { }
+  
+   member.send('**Sanırım buralarda yenisin. Saldırgan olduğunu düşündüğümüz için hesabın kilitlendi. Kilidin açılmasını istiyorsan herhangi bir yetkiliye ulaş.**')
+  }
 })
