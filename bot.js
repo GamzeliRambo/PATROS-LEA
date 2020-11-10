@@ -204,6 +204,8 @@ client.on("ready", () => {
 //-------------------------------------------- HG MESAJI-----------------------------------------////
 client.on('guildMemberAdd', (member, msg) => {
   const moment = require('moment')
+    let Güvenli = `${member} adlı kullanıcının hesabı güvenli!`;
+  let Şüpheli = `${member} adlı kullanıcının hesabı güvenli değil!`;
 	let günler = {
       "0": "Pazar",
       "1": "Pazartesi",
@@ -227,6 +229,7 @@ client.on('guildMemberAdd', (member, msg) => {
 			"11": "Kasım",
 			"12": "Aralık"
     }
+    
   let endAt = member.user.createdAt
       let gün = moment(new Date(endAt).toISOString()).format('DD')
       let ay = moment(new Date(endAt).toISOString()).format('MM').replace("01", "Ocak").replace("02","Şubat").replace("03","Mart").replace("04", "Nisan").replace("05", "Mayıs").replace("06", "Haziran").replace("07", "Temmuz").replace("08", "Ağustos").replace("09", "Eylül").replace("10","Ekim").replace("11","Kasım").replace("12","Aralık")
@@ -238,7 +241,8 @@ let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
 	let oskobs = new Discord.MessageEmbed()
 	.setColor("BLACK")
     .setDescription(` <:go_right:773919887475212358>** • <@${member.id}> Aramıza Hoşgeldin Seninle Birlikte** \` ${member.guild.memberCount}\` **Üyeye Ulaştık** \n <:tac:773903928596627456> • **Kaydının yapılması için sesli odaya gelip ses vermen gerekli. • { Ꮙ } Tagımızı alarak ekibimize katılabilirsin. **\n <:darwin:773903933251911720>** • <@&773266328785387570> Adı Rolüne Sahip Kişiler Kayıt İşlemlerinle İlgilenecektir**\n <:lolo:773903929611255839> • **Hesap Kuruluş Tarihi :** \`${kuruluş}\``)
-.setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif")  
+.setImage("https://cdn.discordapp.com/attachments/756969726034313406/762304211446005770/giphy.gif") 
+   var kontrol;
 client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
 })
 
@@ -436,24 +440,4 @@ member.addRole("773266358501638144")
 member.removeRole("773266340387356693")
 member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Şüpheli Kısmına Atıldınız.__**")
 }
-})
-
-client.on('guildMemberAdd', async member => {
-  
-  member.addRole('773266358501638144')
-  
-});
-
-client.on('guildMemberAdd', async member => {
-if( new Date().getTime() - member.user.createdAt.getTime() < 10*24*60*60*1000) {
-
-      
-
-  try {
-    member.guild.members.get(member.id).addRole('773266358501638144');
-    
-  } catch(err) { }
-  
-   member.send('**Sanırım buralarda yenisin. Saldırgan olduğunu düşündüğümüz için hesabın kilitlendi. Kilidin açılmasını istiyorsan herhangi bir yetkiliye ulaş.**')
-  }
 })
