@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
  
 };
  
-exports.conf = { 
+exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['advertisement','reklam'],
@@ -28,6 +28,6 @@ exports.conf = {
  
 exports.help = {
   name: 'reklam-engelle',
-  description: 'Reklam Sistemini Akif Eder',
+  description: '[Admin Komutu]',
   usage: 'reklam-engelle'
 };
