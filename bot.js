@@ -165,25 +165,25 @@ client.on('userUpdate', async (lrowsoldUser, lrowsnewUser) => {
 
 //-------------------------------------------- OTO MESAJ -----------------------------------------////
 client.on('message', lrowstagmesaj => {
-  if (lrowstagmesaj.content.toLowerCase() === '!tag') {
-    lrowstagmesaj.channel.send('<:go_right:773919887475212358> ≽');//TAG
+  if (lrowstagmesaj.content.toLowerCase() === 'p!tag') {
+    lrowstagmesaj.channel.send('<:go_right:773969596096708658> ≽');//TAG
   }
 });
 
 client.on('message', lrowstagmesaj => {
-  if (lrowstagmesaj.content.toLowerCase() === 'tag') {//TAG
-    lrowstagmesaj.channel.send('<:go_right:773919887475212358> ≽');
+  if (lrowstagmesaj.content.toLowerCase() === 'p!tag') {//TAG
+    lrowstagmesaj.channel.send('<:go_right:773969596096708658> ≽');
   }
 });
 
 client.on('message', lrowsserverlinkmesaj => {
-  if (lrowsserverlinkmesaj.content.toLowerCase() === '!link') {
+  if (lrowsserverlinkmesaj.content.toLowerCase() === 'p!link') {
     lrowsserverlinkmesaj.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/yC9yvx2fMY ');
   }
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === '!davet') {
+  if (msg.content.toLowerCase() === 'p!davet') {
     msg.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/yC9yvx2fMY');
   }
 });
