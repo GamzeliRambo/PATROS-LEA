@@ -434,7 +434,7 @@ client.on("guildMemberAdd", async member => {
 
 client.on("guildMemberAdd", member => {
 
-if(member.user.username.includes("yasaklı tag")){
+if(member.user.username.includes("ᛟ")){
 member.addRole("773266358501638144")
 member.removeRole("773266340387356693")
 member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Şüpheli Kısmına Atıldınız.__**")
