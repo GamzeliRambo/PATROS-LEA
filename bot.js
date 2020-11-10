@@ -242,20 +242,6 @@ let kuruluş = `${gün} ${ay} ${yıl} ${saat}`
 client.channels.cache.get("773266406208307210").send(oskobs)//kanalid
 })
 
-client.on("guildMemberAdd", async member => {
-      let gkisi = client.users.cache.get(member.id);
-      const ktarih = new Date().getTime() - gkisi.createdAt.getTime();   
-
-    if (ktarih < 2592000001) {
-    member.roles.add("773266358501638144")//Şüpheli Hesap
-    
-    }else{
-    
-    member.roles.add("773266340387356693")//Güvenilir Hesağ
-    
-      }
-});
-  
 
 // DM HOŞGELDİN
 //-------------------------------------------- DM MESAJI-----------------------------------------////
@@ -369,7 +355,6 @@ client.on("message", async msg => {
 
 
 //-------------------------------------------- Reklam Sistemi -----------------------------------------//
-//reklam
 client.on("message", async message => {
   
   const lus = await db.fetch(`reklam_${message.guild.id}`)
@@ -380,7 +365,7 @@ client.on("message", async message => {
         if (!message.member.permissions.has('KICK_MEMBERS')) {
           message.delete();
           
-          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
+          return message.channel.send('Hey Dur! Bu Sunucuda Reklamı Engelliyorum')
           
         }
       } catch(err) {
@@ -390,75 +375,6 @@ client.on("message", async message => {
 }
 if (!lus) return;
 });
-client.on("messageUpdate", async message => {
-  
-  const lus = await db.fetch(`reklam_${message.guild.id}`)
-  if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
-    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
-      try {
-        if (!message.member.permissions.has('KICK_MEMBERS')) {
-          message.delete();
-          
-          return message.reply('Hey Dur! Bu Sunucuda Reklamı Engelliyorum').then(message => message.delete(3000));
-          
-        }
-      } catch(err) {
-        console.log(err);
-    }
-  }
-}
-if (!lus) return;
-});
-client.on("message", async message => {
-  
-  const lus = await db.fetch(`reklamkick_${message.guild.id}`)
-    let sayı = await db.fetch(`sayı_${message.author.id}`);
-let a = message.author
-  if (lus) {
-    const reklamengel = ["discord.app", "discord.gg", ".party", ".com", ".az", ".net", ".io", ".gg", ".me", "https", "http", ".com.tr", ".org", ".tr", ".gl", "glicht.me/", ".rf.gd", ".biz", "www.", "www"];
-    if (reklamengel.some(word => message.content.toLowerCase().includes(word))) {
-      try {
-        if (!message.member.permissions.has('KICK_MEMBERS')) {
-          message.delete();
-          db.add(`sayı_${message.author.id}`, 1)
-          if (sayı == null) {
-            const sa = new Discord.MessageEmbed()
-            .setDescription(`Hey! <@${message.author.id}> Bu İlk Uyarın Lütfen Tekrarlama!`)
-            message.channel.send(sa)
-            message.delete()
-            a.send(`Bu İlk Uyarın Lütfen Tekrarlama`)
-            return 
-          }
-         if (sayı === 1) {
-               const sa = new Discord.MessageEmbed()
-            .setDescription(`Hey! <@${message.author.id}> Bu İkinci Uyarın Lütfen Tekrarlama!`)
-            message.channel.send(sa)
-            message.delete()
-            a.send(`Bu İkinci Uyarın Lütfen Tekrarlama`)
-            return 
-         }
-            if (sayı > 2) {
-               const sa = new Discord.MessageEmbed()
-            .setDescription(`Hey! <@${message.author.id}> Reklamdan Dolayı Kickledim!`)
-            message.channel.send(sa)
-            message.delete()
-            a.send(`${message.guild.name} Sunucusundan Reklam Yaptığın İçin Kicklendin!`)
-                db.delete(`sayı_${message.author.id}`)
-message.guild.member(a).kick();     
-              return
-            }
-          
-        }
-      } catch(err) {
-        console.log(err);
-    }
-  }
-}
-if (!lus) return;
-});
-
-
 //-------------------------------------------- MOD Sistemi -----------------------------------------//
 client.on("messageDelete", async message => {
   let a = await db.fetch(`modlog_${message.guild.id}`)
@@ -480,7 +396,16 @@ client.on("channelDelete", async channel => {
     client.channels.cache.get(a).send(sa)
   }
 })
-
+client.on("channelCreate", async channel => {
+  let a = await db.fetch(`modlog_${channel.guild.id}`)
+  if (a) {
+    const sa = new Discord.MessageEmbed()
+    .setTitle('Kanal Oluşturuldu')
+    .setDescription(`**${channel.name}** Adlı Kanal Oluşturuldu!`)
+    .setTimestamp()
+    client.channels.cache.get(a).send(sa)
+  }
+})
 //-------------------- Otorol Sistemi --------------------//
 
 client.on("guildMemberAdd", async member => {
@@ -514,16 +439,3 @@ member.removeRole("773266340387356693")
 member.send("**__Sunucumuzun Yasaklı Tagında Bulunuyorsunuz, Şüpheli Kısmına Atıldınız.__**")
 }
 })
-
-const antispam = require("discord-anti-spam-tr");
-antispam(client, {
-  uyarmaSınırı: 5, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
-  banlamaSınırı: 1, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
-  aralık: 1000, // ms kullanıcılarda zaman miktarı, yasaklanmadan önce aralık değişkeninin maksimumunu gönderebilir.
-  uyarmaMesajı: "Spamı Durdur Yoksa Mutelerim.", // Uyarı mesajı, kullanıcıya hızlı gideceklerini belirten kullanıcıya gönderilir..
-  rolMesajı: "Spam için yasaklandı, başka biri var mı?", //Yasak mesaj, yasaklanmış kullanıcıyı ,Banlar
-  maxSpamUyarı: 7,//Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
-  maxSpamBan: 10, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
-  zaman: 10, // Spamdan sonraki zaman
-  rolİsimi: "773266330257457192" // Spam Atan Kullanıcılar Verilecek Röl
-});
