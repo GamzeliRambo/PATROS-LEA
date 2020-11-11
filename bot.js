@@ -178,13 +178,13 @@ client.on('message', lrowstagmesaj => {
 
 client.on('message', lrowsserverlinkmesaj => {
   if (lrowsserverlinkmesaj.content.toLowerCase() === 'p!link') {
-    lrowsserverlinkmesaj.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/yC9yvx2fMY ');
+    lrowsserverlinkmesaj.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/xgxFhNudTK ');
   }
 });
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'p!davet') {
-    msg.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/yC9yvx2fMY');
+    msg.channel.send('<:go_right:773969596096708658>** İşte Sunucumuzun Davet Linki! :** https://discord.gg/xgxFhNudTK');
   }
 });
 
