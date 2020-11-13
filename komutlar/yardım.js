@@ -20,6 +20,7 @@ const yardım = new Discord.MessageEmbed()
 <:okmavi:773974158169735239> **=**  \`!unjail\`:  **Jaildan cıkarır**
 <:okmavi:773974158169735239> **=**  \`!vipver\`: **Vip Rol verilir**
 <:okmavi:773974158169735239> **=**  \`!vipal\`: **Vip Rol alır**
+<:okmavi:773974158169735239> **=**  \`!çek\`: **İstediniz birini oda çeker**
 <:okmavi:773974158169735239> **=**  \`!kullanıcıbilgim \`: **kullanıcı bilgim gösterir**
 
 `)
