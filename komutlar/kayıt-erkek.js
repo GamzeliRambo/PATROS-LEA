@@ -40,7 +40,7 @@ const embed = new Discord.MessageEmbed()
 .setThumbnail("https://media.tenor.com/images/5a8496cf0faf284d514a8cedc3f7332d/tenor.gif")
 .setFooter(`≽ PATROSİLEA`)
 .setColor('GREEN')
-client.channels.cache.get('773266406208307210').send(embed)
+client.channels.cache.get('770772197647843405').send(embed)
   
 }
 
